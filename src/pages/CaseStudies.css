@@ -1,0 +1,279 @@
+.case-studies {
+  background: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+.cs-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.cs-subtitle {
+  font-size: 1.2rem;
+  color: #a0aec0;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.cs-search-container {
+  display: flex;
+  justify-content: center;
+}
+
+.cs-search-bar {
+  display: flex;
+  align-items: center;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  padding: 0.8rem 1.5rem;
+  width: 100%;
+  max-width: 600px;
+  transition: all 0.3s ease;
+}
+
+.cs-search-bar:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 15px rgba(0, 112, 243, 0.3);
+}
+
+.cs-search-bar input {
+  background: none;
+  border: none;
+  color: var(--text-main);
+  width: 100%;
+  margin-left: 1rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-icon {
+  color: #718096;
+}
+
+.cs-tabs-container {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.cs-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.cs-tab {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.cs-tab.active {
+  color: var(--primary);
+}
+
+.cs-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+.cs-industries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 5rem;
+}
+
+.industry-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid var(--glass-border);
+}
+
+.industry-btn:hover {
+  background: var(--surface-light);
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+
+.ind-icon {
+  color: var(--primary);
+  background: rgba(0, 112, 243, 0.1);
+  padding: 0.5rem;
+  border-radius: 8px;
+  display: flex;
+}
+
+.ind-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.cs-section {
+  margin-bottom: 5rem;
+}
+
+.section-title-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-title-row h2 {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.title-arrow {
+  color: #ff7e5f;
+}
+
+.client-exp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.exp-card {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.exp-img {
+  position: relative;
+  height: 400px;
+}
+
+.exp-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.new-tag {
+  position: absolute;
+  top: 1rem;
+  right: -2rem;
+  background: #ff7e5f;
+  color: white;
+  padding: 0.2rem 3rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transform: rotate(45deg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.exp-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.play-btn {
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.play-btn:hover {
+  transform: scale(1.1);
+}
+
+.exp-info {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+}
+
+.exp-info h3,
+.exp-info h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.exp-info p {
+  font-size: 0.9rem;
+  color: #a0aec0;
+}
+
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.cs-card {
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.cs-img {
+  position: relative;
+  height: 300px;
+}
+
+.cs-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cs-card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+.cs-card-info h3 {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .cs-tabs {
+    justify-content: flex-start;
+    padding-left: 1rem;
+  }
+  
+  .section-title-row h2 {
+    font-size: 1.5rem;
+  }
+  
+  .cs-industries-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

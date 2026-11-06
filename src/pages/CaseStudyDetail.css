@@ -1,0 +1,147 @@
+.case-study-detail {
+  min-height: 100vh;
+}
+
+.cs-hero {
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.back-link {
+  position: absolute;
+  top: 100px;
+  left: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-weight: 500;
+  z-index: 10;
+}
+
+.back-link:hover {
+  color: var(--primary);
+}
+
+.cs-hero-content {
+  max-width: 800px;
+}
+
+.cs-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: var(--primary);
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.cs-hero-content h1 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  color: #ffffff;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.cs-grid-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 0.5fr;
+  gap: 4rem;
+}
+
+.cs-section {
+  margin-bottom: 3rem;
+}
+
+.cs-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+}
+
+.cs-section p {
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  line-height: 1.8;
+}
+
+.cs-features-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.cs-features-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-dim);
+}
+
+.cs-sidebar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cs-sidebar-card {
+  padding: 2rem;
+}
+
+.cs-sidebar-card h2,
+.cs-sidebar-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.cs-tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.cs-tech-tag {
+  padding: 0.4rem 1rem;
+  background: var(--surface-light);
+  border: 1px solid var(--glass-border);
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.cs-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  color: var(--text-dim);
+}
+
+.cs-stat-item span {
+  font-weight: 500;
+}
+
+@media (max-width: 992px) {
+  .cs-grid-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .cs-hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .cs-hero {
+    height: 50vh;
+  }
+  
+  .cs-features-list {
+    grid-template-columns: 1fr;
+  }
+}

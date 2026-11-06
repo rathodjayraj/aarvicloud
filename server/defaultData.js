@@ -1,0 +1,1353 @@
+// Complete Default CMS & SEO Data for AarviCloud
+// Ensures 100% of pages, sections, blogs, portfolio, case studies, footer, and SEO tags are dynamic.
+
+function slugify(text) {
+  return String(text || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
+const DOMAIN = process.env.SITE_DOMAIN || 'https://aarvicloud.com';
+
+const defaultData = {
+  siteSettings: {
+    id: 'global',
+    siteName: 'AarviCloud IT Solutions',
+    siteDomain: DOMAIN,
+    defaultMetaTitle: 'AarviCloud | Enterprise AI, Cloud Solutions & Custom Software Development Company',
+    defaultMetaDescription: 'AarviCloud engineers production-grade Generative AI, secure cloud architectures, custom ERP/CRM software, and scalable web & mobile applications for global enterprises.',
+    defaultKeywords: 'AI Development Company, Cloud Solutions, Custom Software Development Company, ERP Development Rajkot, CRM Software, Cyber Security Consulting, React Node.js Agency, AarviCloud',
+    defaultMetaRobots: 'index, follow',
+    faviconUrl: '/logo.png',
+    headerLogoUrl: '/logo.png',
+    footerLogoUrl: '/logo.png',
+    footerLogoBgMode: 'card',
+    defaultOgImage: `${DOMAIN}/api/og-default.svg`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    robotsTxt: `User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /api/\n\nSitemap: ${DOMAIN}/sitemap.xml`,
+    googleSiteVerification: '',
+    updatedAt: new Date().toISOString()
+  },
+
+  pageSeo: {
+    home: {
+      pageKey: 'home',
+      routePath: '/',
+      metaTitle: 'AarviCloud | Enterprise AI, Cloud Solutions & Custom Software Development',
+      metaDescription: 'Partner with AarviCloud for production-grade Generative AI, scalable AWS/Azure/GCP cloud solutions, custom ERP & CRM software, and full-stack digital engineering.',
+      targetKeywords: 'Enterprise AI Solutions, Cloud Computing Services, Custom Software Development Company, ERP CRM Development, Digital Transformation Partner, AarviCloud',
+      metaRobots: 'index, follow',
+      ogTitle: 'AarviCloud — Architecting the Future with AI, Cloud, and Code',
+      ogDescription: 'We engineer production-grade Generative AI, secure cloud architectures, and robust custom software systems that empower modern enterprises to scale.',
+      ogImage: `${DOMAIN}/api/og-default.svg`,
+      ogUrl: `${DOMAIN}/`,
+      canonicalUrl: `${DOMAIN}/`,
+      h1Heading: 'Architecting the future with AI, Cloud, and Code.',
+      priority: 1.0,
+      changefreq: 'daily'
+    },
+    about: {
+      pageKey: 'about',
+      routePath: '/about',
+      metaTitle: 'About AarviCloud | Global Digital Engineering & Cloud Transformation Partner',
+      metaDescription: 'Learn how AarviCloud has delivered 500+ enterprise AI, cloud migration, cyber security, and custom software engineering projects worldwide since 2011.',
+      targetKeywords: 'About AarviCloud, IT Consulting Company India, Cloud Architects, Custom Software Engineers, Jayraj Rathod, Dedicated Development Team',
+      metaRobots: 'index, follow',
+      ogTitle: 'About AarviCloud | 12+ Years of Enterprise AI & Cloud Excellence',
+      ogDescription: 'Innovating secure enterprise AI, Cloud Solutions, and Software Engineering for 500+ global clients since 2011.',
+      ogImage: `${DOMAIN}/api/og-default.svg`,
+      ogUrl: `${DOMAIN}/about`,
+      canonicalUrl: `${DOMAIN}/about`,
+      h1Heading: 'About AarviCloud',
+      priority: 0.9,
+      changefreq: 'weekly'
+    },
+    portfolio: {
+      pageKey: 'portfolio',
+      routePath: '/portfolio',
+      metaTitle: 'Our Portfolio | Custom Software, AI, Cloud & Mobile App Projects | AarviCloud',
+      metaDescription: 'Explore AarviCloud’s portfolio of enterprise software, algorithmic trading platforms, e-commerce apps, cloud migrations, Smart HRMS, EduTech Pro, and ERP systems.',
+      targetKeywords: 'Software Development Portfolio, AI Projects, Cloud Migration Case Studies, React Node.js Projects, Flutter Mobile Apps, ERP Portfolio',
+      metaRobots: 'index, follow',
+      ogTitle: 'AarviCloud Portfolio — Impactful Digital Transformations',
+      ogDescription: 'Discover our real-world enterprise software, cloud architecture, cyber security, and AI deployments.',
+      ogImage: `${DOMAIN}/api/og-default.svg`,
+      ogUrl: `${DOMAIN}/portfolio`,
+      canonicalUrl: `${DOMAIN}/portfolio`,
+      h1Heading: 'Our Portfolio',
+      priority: 0.9,
+      changefreq: 'weekly'
+    },
+    'case-studies': {
+      pageKey: 'case-studies',
+      routePath: '/case-studies',
+      metaTitle: 'Enterprise Case Studies | AI, Cloud, Healthcare, BFSI & FinTech | AarviCloud',
+      metaDescription: 'Read in-depth engineering case studies on how AarviCloud empowers Fortune 500 brands, Healthcare, BFSI, Retail, and SaaS companies to scale globally.',
+      targetKeywords: 'Software Engineering Case Studies, Enterprise AI Case Studies, Healthcare IT Solutions, FinTech App Development, Cloud Scalability',
+      metaRobots: 'index, follow',
+      ogTitle: 'AarviCloud Case Studies — Real-World Enterprise Impact',
+      ogDescription: 'How we help global brands achieve 60% faster performance and millions of active users through cloud & AI engineering.',
+      ogImage: `${DOMAIN}/api/og-default.svg`,
+      ogUrl: `${DOMAIN}/case-studies`,
+      canonicalUrl: `${DOMAIN}/case-studies`,
+      h1Heading: 'Enterprise Digital Transformation Case Studies',
+      priority: 0.9,
+      changefreq: 'weekly'
+    },
+    'digital-marketing': {
+      pageKey: 'digital-marketing',
+      routePath: '/digital-marketing',
+      metaTitle: 'Digital Marketing Services & Website Traffic Rank Tracker Tool | AarviCloud',
+      metaDescription: 'Supercharge your brand visibility with AarviCloud Digital Marketing. Track any website ranking, organic traffic, keywords, and SEO reports with our free live tool.',
+      targetKeywords: 'Digital Marketing Services, Website Traffic Checker, Keyword Ranking Tool, SEO Rank Tracker, Organic Traffic Checker, SEO Agency Rajkot, AarviCloud Marketing',
+      metaRobots: 'index, follow',
+      ogTitle: 'Digital Marketing Services & Live Website SEO Traffic Tool | AarviCloud',
+      ogDescription: 'Track any website ranking, organic traffic, and keyword positions with AarviCloud\'s live digital marketing intelligence tool.',
+      ogImage: `${DOMAIN}/api/og-default.svg`,
+      ogUrl: `${DOMAIN}/digital-marketing`,
+      canonicalUrl: `${DOMAIN}/digital-marketing`,
+      h1Heading: 'AI-Powered Digital Marketing & Live Website Traffic Intelligence',
+      priority: 0.9,
+      changefreq: 'weekly'
+    },
+    blog: {
+      pageKey: 'blog',
+      routePath: '/blog',
+      metaTitle: 'Tech & AI Engineering Blog | Cloud, ERP, SaaS & Cyber Security | AarviCloud',
+      metaDescription: 'Expert insights, buyer guides, and engineering tutorials on Generative AI, Cloud Computing, Custom ERP Development, Cyber Security, and MERN Stack.',
+      targetKeywords: 'Cloud Computing Blog, ERP Development Guide, Generative AI Enterprise, Cyber Security Trends 2026, Full Stack Engineering Blog',
+      metaRobots: 'index, follow',
+      ogTitle: 'AarviCloud Engineering & AI Blog',
+      ogDescription: 'Deep-dive technical articles on AI automation, ERP software, cloud security, and modern software architecture.',
+      ogImage: `${DOMAIN}/api/og-default.svg`,
+      ogUrl: `${DOMAIN}/blog`,
+      canonicalUrl: `${DOMAIN}/blog`,
+      h1Heading: 'Our Blog',
+      priority: 0.9,
+      changefreq: 'daily'
+    },
+    contact: {
+      pageKey: 'contact',
+      routePath: '/contact',
+      metaTitle: 'Contact AarviCloud | Hire AI, Cloud & Custom Software Experts in Rajkot, India',
+      metaDescription: 'Get in touch with AarviCloud IT Solutions for custom software, AI automation, ERP/CRM systems, and cloud consulting. Visit our Rajkot office or call +91 88664 87551.',
+      targetKeywords: 'Contact AarviCloud, IT Company Rajkot Gujarat, Hire Software Developers India, AI Consultation, Custom ERP Quote',
+      metaRobots: 'index, follow',
+      ogTitle: 'Contact AarviCloud IT Solutions — Let’s Build Together',
+      ogDescription: 'Have a project in mind? Speak with our cloud and AI architects today.',
+      ogImage: `${DOMAIN}/api/og-default.svg`,
+      ogUrl: `${DOMAIN}/contact`,
+      canonicalUrl: `${DOMAIN}/contact`,
+      h1Heading: 'Contact Us',
+      priority: 0.8,
+      changefreq: 'monthly'
+    },
+    'privacy-policy': {
+      pageKey: 'privacy-policy',
+      routePath: '/privacy-policy',
+      metaTitle: 'Privacy Policy | Data Protection & Security | AarviCloud IT Solutions',
+      metaDescription: 'Read AarviCloud’s Privacy Policy to understand how we collect, use, and safeguard your personal and enterprise information.',
+      targetKeywords: 'AarviCloud Privacy Policy, Data Protection, GDPR Compliance, Information Security',
+      metaRobots: 'index, follow',
+      ogTitle: 'Privacy Policy | AarviCloud IT Solutions',
+      ogDescription: 'How AarviCloud protects visitor and client data across our digital platforms.',
+      ogImage: `${DOMAIN}/api/og-default.svg`,
+      ogUrl: `${DOMAIN}/privacy-policy`,
+      canonicalUrl: `${DOMAIN}/privacy-policy`,
+      h1Heading: 'Privacy Policy',
+      priority: 0.4,
+      changefreq: 'yearly'
+    },
+    'terms-of-service': {
+      pageKey: 'terms-of-service',
+      routePath: '/terms-of-service',
+      metaTitle: 'Terms of Service | Legal & Usage Terms | AarviCloud IT Solutions',
+      metaDescription: 'Review the Terms of Service governing the use of AarviCloud’s website, digital products, and enterprise consulting services.',
+      targetKeywords: 'AarviCloud Terms of Service, Website Terms and Conditions, IT Services Agreement',
+      metaRobots: 'index, follow',
+      ogTitle: 'Terms of Service | AarviCloud IT Solutions',
+      ogDescription: 'Official terms and conditions for using AarviCloud digital platforms and services.',
+      ogImage: `${DOMAIN}/api/og-default.svg`,
+      ogUrl: `${DOMAIN}/terms-of-service`,
+      canonicalUrl: `${DOMAIN}/terms-of-service`,
+      h1Heading: 'Terms of Service',
+      priority: 0.4,
+      changefreq: 'yearly'
+    }
+  },
+
+  homeContent: {
+    hero: {
+      badge: '✦ Global Digital Engineering Partner',
+      h1Prefix: 'Architecting the future with',
+      h1Highlight: 'AI, Cloud, and Code.',
+      description: 'We engineer production-grade Generative AI, secure cloud architectures, and robust custom software systems that empower modern enterprises to scale.',
+      ctaText: 'Consult Our Experts',
+      ctaLink: '/contact',
+      clientLogos: ['atoa', 'seylabs', 'CASHIFY', 'Ancileo', 'wedia', 'networked', 'SIEMENS']
+    },
+    servicesSection: {
+      badge: 'Services',
+      h2: 'Comprehensive AI & Cloud Solutions Tailored for Enterprise Transformation',
+      subtitle: 'We engineer advanced AI frameworks and deploy scalable cloud solutions that optimize processes, empower decision-making, and accelerate innovation.',
+      services: [
+        { iconKey: 'CloudIcon', title: 'Cloud Solutions', desc: 'Scalable AWS, Azure, and GCP cloud infrastructure designed for modern business agility and high availability.' },
+        { iconKey: 'SecurityIcon', title: 'Cyber Security', desc: 'Advanced zero-trust threat protection and security audits to keep your enterprise digital assets safe.' },
+        { iconKey: 'TransformIcon', title: 'Digital Transformation', desc: 'Modernize your enterprise workflow with AI-driven automation and cutting-edge full-stack architectures.' },
+        { iconKey: 'AnalyticsIcon', title: 'Data Analytics', desc: 'Turn your raw operational data into actionable intelligence with our expert BI and ML solutions.' },
+        { iconKey: 'ConsultingIcon', title: 'IT Consulting', desc: 'Strategic technology roadmapping and architecture planning to align your IT with revenue goals.' },
+        { iconKey: 'AppIcon', title: 'App Development', desc: 'Custom web and mobile applications built with React, Next.js, Node.js, and Flutter for scale.' },
+        { iconKey: 'CrmIcon', title: 'CRM Development', desc: 'Custom Customer Relationship Management systems to streamline sales pipelines, marketing, and client retention.' },
+        { iconKey: 'ErpIcon', title: 'ERP Development', desc: 'Enterprise Resource Planning software to unify finance, HR, manufacturing, inventory, and supply chain.' },
+        { iconKey: 'UiUxIcon', title: 'UI/UX Design', desc: 'User-centric design systems producing intuitive, high-converting, and accessible digital interfaces.' },
+        { iconKey: 'SeoIcon', title: 'SEO Optimization', desc: 'Technical SEO, Core Web Vitals optimization, and content strategies to dominate organic search rankings.' },
+        { iconKey: 'MarketingIcon', title: 'Digital Marketing', desc: 'Data-driven performance marketing campaigns, conversion optimization, and paid media to grow your brand.' }
+      ]
+    },
+    featuredCasesSection: {
+      badge: 'Case Studies',
+      h2: 'Real-World Solutions of Digital Engineering',
+      subtitle: 'Real-world projects demonstrating our capability in delivering high-impact, custom software development.',
+      cases: [
+        {
+          title: 'Delta Terminal V3 - Algo Trading',
+          category: 'Development',
+          image: 'https://images.unsplash.com/photo-1621761191319-c6fb62004040?q=80&w=2070&auto=format&fit=crop',
+          desc: 'An algorithmic trading software featuring real-time crypto and asset streaming using Delta Exchange API.',
+          tech: ['React', 'Delta API', 'WebSockets'],
+          url: 'https://delta.gujjucode.com/'
+        },
+        {
+          title: 'Global Link Holidays',
+          category: 'Development',
+          image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop',
+          desc: 'An interactive tour and travel booking platform providing seamless holiday planning.',
+          tech: ['React', 'Node.js'],
+          url: 'https://globallinkholidays.com/'
+        }
+      ]
+    },
+    industriesSection: {
+      badge: 'Industries',
+      h2: 'Redefining Sectors Through Smart AI Automation',
+      subtitle: 'We deploy purpose-built AI models to streamline operations and unlock new efficiency gains across diverse industries.',
+      industries: {
+        Healthcare: {
+          title: 'AI for Healthcare Industry',
+          quote: '"Precision Diagnostics, Compassionate Care"',
+          desc: 'Deploy AI models that help doctors diagnose diseases faster, optimize patient scheduling, and predict hospital readmissions to improve care quality.',
+          impacts: ['Improve diagnostic accuracy by 25%', 'Reduce administrative overhead by 30%', 'Enhance patient triage and flow management.'],
+          image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop'
+        },
+        'Private Investments': {
+          title: 'AI for Venture Capital & Private Equity',
+          quote: '"Smarter Investments, Stronger Returns"',
+          desc: 'Deploy AI models that analyze market dynamics, identify undervalued opportunities, and optimize portfolio performance.',
+          impacts: ['Make investment decisions with foresight', 'Reducing risk while maximizing ROI.'],
+          image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2104&auto=format&fit=crop'
+        },
+        Retail: {
+          title: 'AI for Retail Industry',
+          quote: '"Personalization at Scale, Efficiency in Motion"',
+          desc: 'From hyper-personalized recommendations to intelligent inventory and demand forecasting, AI transforms retail end-to-end.',
+          impacts: ['Boost customer loyalty', 'Cut waste', 'Streamline operations.'],
+          image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop'
+        },
+        Manufacturing: {
+          title: 'AI for Smart Manufacturing',
+          quote: '"Zero Downtime, Maximized Throughput"',
+          desc: 'Predict equipment failures before they happen, optimize supply chains in real-time, and automate quality control with computer vision.',
+          impacts: ['Reduce unscheduled downtime by 45%', 'Optimize production throughput', 'Improve product quality assurance.'],
+          image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop'
+        },
+        Finance: {
+          title: 'AI for Financial Services',
+          quote: '"Data-Driven Trust and Risk Mitigation"',
+          desc: 'Harness AI for fraud detection, credit risk analysis, and real-time compliance monitoring.',
+          impacts: ['Safeguard transactions', 'Improve customer trust', 'Strengthen financial governance.'],
+          image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop'
+        },
+        Logistics: {
+          title: 'AI for Logistics & Supply Chain',
+          quote: '"Delivering Intelligence Across Every Mile"',
+          desc: 'Optimize routes, automate warehouses, and forecast demand with AI-powered supply chain solutions.',
+          impacts: ['Ensure faster deliveries', 'Cost-efficient logistics operations', 'Reliable end-to-end deliveries.'],
+          image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop'
+        }
+      }
+    },
+    aiToolsSection: {
+      badge: 'Productivity',
+      h2: 'Accelerate Product Development by 10X',
+      subtitle: 'We leverage advanced AI engineering systems to launch your Minimum Viable Product in just 15 days.',
+      groups: [
+        {
+          title: 'AI-Powered Coding Assistants',
+          tools: [
+            { name: 'Cursor AI', value: '98%' },
+            { name: 'Github Copilot', value: '95%' },
+            { name: 'Claude Code', value: '92%' }
+          ]
+        },
+        {
+          title: 'Agents for MVPs',
+          tools: [
+            { name: 'Lovable AI', value: '85%' },
+            { name: 'Bolt', value: '88%' },
+            { name: 'Vercel', value: '87%' }
+          ]
+        },
+        {
+          title: 'AI Productivity Tools',
+          tools: [
+            { name: 'ChatGPT', value: '90%' },
+            { name: 'Claude', value: '89%' },
+            { name: 'Gemini', value: '85%' }
+          ]
+        },
+        {
+          title: 'AI Automation Tools',
+          tools: [
+            { name: 'n8n', value: '83%' },
+            { name: 'Make (Integromat)', value: '80%' },
+            { name: 'Zapier AI Actions', value: '86%' },
+            { name: 'LangChain / CrewAI', value: '81%' }
+          ]
+        }
+      ]
+    },
+    productsSection: {
+      badge: 'Our Solutions',
+      h2: 'Enterprise-Ready Platforms Built for Growth',
+      subtitle: 'Accelerate your business operations with our robust, scalable, and intelligent software platforms.',
+      products: [
+        {
+          image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop',
+          badge: 'HR Tech',
+          iconKey: 'ConsultingIcon',
+          title: 'Smart HRMS',
+          desc: 'Automate payroll, attendance, and recruitment with AI-driven insights.',
+          features: ['Payroll Automation', 'Self-Service Portal', 'Performance Mgmt'],
+          btnText: 'Explore HRMS',
+          btnLink: '/contact'
+        },
+        {
+          image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2104&auto=format&fit=crop',
+          badge: 'EdTech',
+          iconKey: 'UiUxIcon',
+          title: 'EduTech Pro',
+          desc: 'Comprehensive management system for schools and colleges.',
+          features: ['Student Info System', 'Fee Management', 'E-Learning Integration'],
+          btnText: 'Explore EduTech',
+          btnLink: '/contact'
+        },
+        {
+          image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop',
+          badge: 'Enterprise',
+          iconKey: 'ErpIcon',
+          title: 'Enterprise Core',
+          desc: 'Unified ERP solution for inventory, finance, and supply chain.',
+          features: ['Inventory Control', 'Financial Accounting', 'CRM & Sales'],
+          btnText: 'Explore ERP',
+          btnLink: '/contact'
+        }
+      ]
+    },
+    workWithSection: {
+      h2: 'We work with',
+      subtitle: 'Tailored Technology Services for Every Business—from Startups to Enterprises.',
+      cards: [
+        {
+          type: 'startup',
+          title: 'Startups Business',
+          desc: 'Our expertise in MVP development, rapid prototyping, and flexible engagement models, enables us to give startups the ability to transition from MVP to full-scale product launch. Startups love our diverse technology stack and proactive execution, enabling them to fully rely on us for both strategic tech decisions and seamless execution.'
+        },
+        {
+          type: 'small-biz',
+          title: 'Small Business',
+          desc: "Small businesses are always looking to scale and enhance efficiency through technology. That's where we add immense value. We provide end-to-end custom technology solutions under one roof—covering everything from UI/UX design and development to quality assurance and cloud-based deployment."
+        },
+        {
+          type: 'enterprise-biz',
+          title: 'Enterprise Business',
+          desc: 'We are a high-end product development company, building enterprise grade tech solutions that drive real business impact. From global clinical trial management systems to insurance portfolio platforms, our products serve as the backbone of multi-million dollar revenue-generating businesses for our clients worldwide.'
+        },
+        {
+          type: 'agency-biz',
+          title: 'Agency Business',
+          desc: 'We offer a no-obligation business analysis process, 360 degree technology consultation, go-to-market strategy, and tailored services to help agencies scale efficiently with our capable in-house development team.'
+        }
+      ],
+      ctaCard: {
+        title: 'Bringing Innovation Together',
+        desc: "AarviCloud's R&D team keeps us ahead of the curve in technology adoption and execution, ensuring our clients always benefit from the latest innovations and cutting-edge solutions.",
+        btnText: 'Get in Touch!',
+        btnLink: '/contact'
+      }
+    },
+    statsSection: [
+      { value: '250+', label: 'Projects Completed' },
+      { value: '98%', label: 'Client Satisfaction' },
+      { value: '15+', label: 'Years Experience' },
+      { value: '50+', label: 'Expert Engineers' }
+    ]
+  },
+
+  aboutContent: {
+    heroTitlePrefix: 'About',
+    heroTitleHighlight: 'AarviCloud',
+    heroSubtitle: 'Innovating secure enterprise AI, Cloud Solutions, and Software Engineering.',
+    whoWeAreHeading: 'Who We Are',
+    whoWeAreParagraphs: [
+      'Since 2011, AarviCloud has been a trusted digital transformation partner and custom software development company. We specialize in helping modern enterprises navigate the complex landscapes of cloud computing, custom software engineering, and corporate cyber security consulting.',
+      'Our global team of senior engineers and certified cloud architects work around the clock to ensure your IT infrastructures are fully optimized, secure, and ready to scale. We build high-availability architectures and integrate generative AI pipelines to automate your operations and maximize productivity.'
+    ],
+    features: [
+      { value: '12+ Years', label: 'In Industry' },
+      { value: '500+', label: 'Global Clients' }
+    ],
+    aboutImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop',
+    awardBadgeText: 'Award Winning IT Partner',
+    journeyHeading: 'Our Journey',
+    journeySubtitle: 'From humble beginnings to global reach.',
+    timeline: [
+      { year: '2011', title: 'Company Founding', desc: 'AarviCloud was established with a vision to simplify enterprise cloud adoption.' },
+      { year: '2015', title: 'International Growth', desc: 'Expanded our services globally, delivering tailored custom software and cloud solutions to international markets.' },
+      { year: '2019', title: 'SecOps Infrastructure', desc: 'Formed our dedicated cyber security division to engineer hardened architectures for data protection.' },
+      { year: '2023', title: 'Enterprise AI Integration', desc: 'Pioneered the integration of generative AI pipelines and intelligent automation systems into client workflows.' }
+    ],
+    valuesHeading: 'Our Core Values',
+    valuesSubtitle: 'The principles that guide everything we do.',
+    values: [
+      { iconKey: 'MissionIcon', title: 'Our Mission', desc: 'To engineer secure, scalable cloud solutions and custom software systems that empower global enterprises to achieve operational excellence.' },
+      { iconKey: 'VisionIcon', title: 'Our Vision', desc: 'To pioneer next-generation digital engineering, setting the global standard for AI integrations and secure IT infrastructure solutions.' },
+      { iconKey: 'CommitmentIcon', title: 'Our Commitment', desc: 'To deliver unmatched technical expertise and support that guarantees project success, from discovery to global deployment.' },
+      { iconKey: 'CoreSecurityIcon', title: 'Core Security', desc: 'To embed security-first engineering practices in every layer, safeguarding enterprise assets with advanced threat mitigation.' }
+    ],
+    teamHeading: 'Meet Our Leadership',
+    teamSubtitle: 'The visionaries behind our success.',
+    team: [
+      { name: 'Jayraj Rathod', role: 'CEO & Founder', image: '' }
+    ],
+    processHeading: 'How We Work',
+    processSubtitle: 'A proven methodology for digital success.',
+    steps: [
+      { title: 'Tech Discovery', desc: 'We analyze your technical requirements, codebases, and existing cloud infrastructure.' },
+      { title: 'AI & Cloud Architecture', desc: 'Designing a secure, scalable blueprint and roadmap tailored for your systems.' },
+      { title: 'Digital Deployment', desc: 'Building, testing, and deploying robust applications with high uptime.' },
+      { title: 'Continuous Monitoring', desc: 'Ongoing optimization, performance tuning, and proactively mitigating threats.' }
+    ],
+    ctaHeading: 'Ready to Transform Your Business?',
+    ctaSubtitle: 'Join over 500+ global clients who trust AarviCloud for their digital infrastructure.',
+    ctaPrimaryText: 'Work With Us',
+    ctaPrimaryLink: '/contact',
+    ctaSecondaryText: 'View Our Work',
+    ctaSecondaryLink: '/portfolio'
+  },
+
+  contactContent: {
+    h1Prefix: 'Contact',
+    h1Highlight: 'Us',
+    subtitle: "Have a project in mind? Let's build something amazing together.",
+    cardHeading: 'Get In Touch',
+    cardDescription: "We're here to answer any questions you may have about our AI, cloud, and custom software solutions.",
+    email: 'hello@aarvicloud.com',
+    phone: '+91 88664 87551',
+    officeAddress: 'TWINSTAR, 150 Feet Ring Rd, near Nana Mava Road, Rajkot, Gujarat 360004',
+    recipientEmail: 'rathodjayraj94@gmail.com'
+  },
+
+  footerContent: {
+    partnersLabel: 'Our Partners :',
+    partners: ['Microsoft Azure', 'AWS', 'Shopify Partners', 'Google Cloud Partner'],
+    brandDescription: 'We empower enterprises and startups worldwide with scalable, secure, and intelligent AI-driven solutions that transform industries and redefine growth.',
+    phone: '+91 88664 87551',
+    email: 'hello@aarvicloud.com',
+    quickLinksTitle: 'LINKS',
+    quickLinks: [
+      { label: 'Home', path: '/' },
+      { label: 'Our Services', path: '/about' },
+      { label: 'Our work', path: '/portfolio' },
+      { label: 'Case Studies', path: '/case-studies' },
+      { label: 'Blog', path: '/blog' },
+      { label: 'Who we are', path: '/about' }
+    ],
+    servicesTitle: 'SERVICES',
+    serviceLinks: [
+      { label: 'Our AI Edge', path: '/p/ai-cloud-consulting-services' },
+      { label: 'Mobile App Development', path: '/contact' },
+      { label: 'Web Development', path: '/contact' },
+      { label: 'Custom ERP & CRM Development', path: '/p/erp-development-company-rajkot' },
+      { label: 'Shopify Development', path: '/contact' }
+    ],
+    socialTitle: 'FOLLOW US ON',
+    socialLinks: {
+      linkedin: 'https://linkedin.com',
+      twitter: 'https://x.com',
+      behance: 'https://behance.net',
+      dribbble: 'https://dribbble.com'
+    },
+    copyrightText: `© ${new Date().getFullYear()} AarviCloud IT Solutions. All rights reserved.`,
+    ctaSubtitle: 'Need help with a project?',
+    ctaHeading: "Let's talk!",
+    ctaDescription: "Every enterprise is unique. Let's design a tailored AI framework that elevates your business performance.",
+    ctaButtonText: 'Contact us',
+    ctaButtonLink: '/contact'
+  },
+
+  caseStudiesPageContent: {
+    h1Heading: 'Enterprise Digital Transformation Case Studies',
+    subtitle: 'We empower brands to achieve global product growth through digital transformation.',
+    clientExperiences: [
+      { id: 1, name: 'John Smith', role: 'CTO, HealthTech', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop' },
+      { id: 2, name: 'Sarah Williams', role: 'CEO, EduPro', image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop' },
+      { id: 3, name: 'Michael Chen', role: 'Director, FinanceCore', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop' }
+    ]
+  },
+
+  blogs: [
+    {
+      id: 10,
+      slug: 'erp-development-company-rajkot-india-2026-guide',
+      title: 'ERP Development Company Rajkot India: The Complete 2026 Guide',
+      excerpt: 'If your business is based in Rajkot or anywhere in Saurashtra and you have outgrown spreadsheets and disconnected software, choosing the right ERP development company is critical for scalable growth.',
+      content: `## Why Growing Businesses in Rajkot Need Custom ERP Software
+Enterprise Resource Planning (ERP) systems have become the operational backbone of modern manufacturing, engineering, and trading enterprises across Rajkot, Gujarat, and the wider Saurashtra industrial belt. When departments rely on disconnected spreadsheets and legacy accounting tools, data silos slow down decision-making.
+
+### Core Modules Every Custom ERP Should Include
+A production-grade custom ERP consolidates your daily workflows into one unified cloud database:
+- **Inventory & Warehouse Management**: Real-time batch tracking, barcode/QR scanning, and automated reorder alerts.
+- **Production & Shop-Floor Planning (MRP)**: Bill of Materials (BOM), machine scheduling, wastage analysis, and quality control checkpoints.
+- **GST-Compliant Finance & Billing**: Automated e-invoicing, ledger reconciliation, and multi-branch financial reporting.
+- **HRMS & Payroll Automation**: Biometric attendance integration, shift scheduling, and statutory compliance.
+
+### Off-the-Shelf vs. Custom ERP Development
+While generic ERP packages force your staff to change their proven processes, a custom ERP engineered by AarviCloud adapts strictly to your business rules without expensive per-user licensing fees.
+
+#### Key Technical Architecture (H4)
+We architect cloud-native ERP platforms using React, Node.js, PostgreSQL, and microservices with role-based access control (RBAC) and automated daily cloud backups.
+
+##### Security & Compliance Standards (H5)
+Every ERP deployment includes end-to-end TLS encryption, audit logging, and strict database isolation.
+
+###### Ready to Modernize Your Operations? (H6)
+Contact AarviCloud in Rajkot today for a comprehensive workflow audit and custom ERP roadmap.`,
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop',
+      author: 'AarviCloud Team',
+      date: 'Aug 12, 2026',
+      readTime: '22 min read',
+      category: 'SaaS Product Development',
+      tags: ['ERP Development', 'Rajkot IT Company', 'SaaS', 'Enterprise Software'],
+      published: true,
+      metaTitle: 'ERP Development Company Rajkot India: The Complete 2026 Guide | AarviCloud',
+      metaDescription: 'Looking for the best ERP development company in Rajkot, India? Discover how custom cloud ERP software streamlines manufacturing, inventory, finance, and HR.',
+      targetKeywords: 'ERP Development Company Rajkot, Custom ERP Software India, Manufacturing ERP Gujarat, Cloud ERP Solutions, AarviCloud',
+      metaRobots: 'index, follow',
+      ogTitle: 'ERP Development Company Rajkot India: The Complete 2026 Guide',
+      ogDescription: 'How custom ERP software unifies finance, inventory, HR, and manufacturing for enterprises in Rajkot and across India.',
+      ogImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/blog/erp-development-company-rajkot-india-2026-guide`
+    },
+    {
+      id: 11,
+      slug: 'best-invoice-automation-software-2026-buyers-guide',
+      title: "Best Invoice Automation Software: The Complete 2026 Buyer's Guide",
+      excerpt: 'Searching for the best invoice automation software? Compare AI-powered OCR billing, GST compliance, automated payment reminders, and ERP integration.',
+      content: `## How AI Invoice Automation Transforms Accounts Payable & Receivable
+Invoicing and billing automation eliminates manual data entry errors, accelerates cash flow cycles, and simplifies GST and tax compliance for modern enterprises.
+
+### Top Features to Look For in 2026
+- **AI OCR & Intelligent Document Processing**: Automatically extract line items, tax rates, and vendor details from PDFs and scanned bills.
+- **Automated 3-Way Matching**: Instantly verify invoices against purchase orders (POs) and goods receipt notes (GRNs).
+- **Smart Payment Follow-Ups**: Automated WhatsApp and email reminders that reduce overdue receivables by up to 40%.
+
+### Integrating Invoice Automation with Your ERP & CRM
+AarviCloud builds custom AI invoicing pipelines that sync bi-directionally with Tally, Zoho, SAP, or your custom ERP database in real time.`,
+      image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop',
+      author: 'AarviCloud Team',
+      date: 'Aug 11, 2026',
+      readTime: '18 min read',
+      category: 'AI and Automation',
+      tags: ['Invoice Automation', 'FinTech AI', 'GST Billing', 'Workflow Automation'],
+      published: true,
+      metaTitle: "Best Invoice Automation Software: The Complete 2026 Buyer's Guide | AarviCloud",
+      metaDescription: 'Compare the best invoice automation software in 2026. Learn how AI OCR billing, automated GST compliance, and ERP integration accelerate enterprise cash flow.',
+      targetKeywords: 'Best Invoice Automation Software, AI Billing Software, Accounts Payable Automation, GST Invoicing ERP, AarviCloud',
+      metaRobots: 'index, follow',
+      ogTitle: "Best Invoice Automation Software: The Complete 2026 Buyer's Guide",
+      ogDescription: 'Reduce billing errors and accelerate payment cycles with AI-powered invoice automation software.',
+      ogImage: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/blog/best-invoice-automation-software-2026-buyers-guide`
+    },
+    {
+      id: 1,
+      slug: 'future-of-cloud-computing-in-2026',
+      title: 'The Future of Cloud Computing in 2026: Serverless & Edge Architectures',
+      excerpt: 'Exploring the enterprise shift towards serverless architectures, multi-cloud Kubernetes, and edge computing in 2026.',
+      content: `## Distributed Cloud & Serverless Evolution
+Cloud computing is evolving at an unprecedented pace. In 2026, enterprises are adopting distributed cloud environments where compute happens closer to the user at the network edge.
+
+### Why Serverless Is Now the Enterprise Default
+Serverless architectures allow engineering teams to focus 100% on business logic while auto-scaling from zero to millions of requests without idle infrastructure costs.
+
+### Edge Computing & Real-Time AI Inference
+Combining edge nodes with lightweight AI models enables sub-10ms latency for IoT telemetry, algorithmic trading, and personalized e-commerce experiences.`,
+      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop',
+      author: 'John Doe',
+      date: 'May 10, 2026',
+      readTime: '12 min read',
+      category: 'Cloud',
+      tags: ['Cloud Computing', 'Serverless', 'Edge Computing', 'AWS'],
+      published: true,
+      metaTitle: 'The Future of Cloud Computing in 2026: Serverless & Edge | AarviCloud',
+      metaDescription: 'Explore the 2026 cloud computing landscape: serverless architectures, edge computing, Kubernetes cost optimization, and multi-cloud strategies.',
+      targetKeywords: 'Future of Cloud Computing 2026, Serverless Architecture, Edge Computing, Cloud Migration Services',
+      metaRobots: 'index, follow',
+      ogTitle: 'The Future of Cloud Computing in 2026',
+      ogDescription: 'Exploring the shift towards serverless architectures and edge computing in modern enterprises.',
+      ogImage: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/blog/future-of-cloud-computing-in-2026`
+    },
+    {
+      id: 2,
+      slug: 'cyber-security-trends-zero-trust-ai-defense',
+      title: 'Cyber Security Trends: Zero-Trust & AI-Driven Threat Defense',
+      excerpt: 'How AI is changing both the cyber threats enterprises face and the automated defense mechanisms used to stop them.',
+      content: `## AI-Driven Cyber Defense in 2026
+Cybersecurity is no longer just about perimeter firewalls. AI-driven threats require real-time anomaly detection and automated incident response.
+
+### Implementing Zero-Trust Architecture
+Zero-trust architecture ("never trust, always verify") has become mandatory for modern cloud enterprises, combining continuous identity verification, least-privilege access, and micro-segmentation.`,
+      image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop',
+      author: 'Jane Smith',
+      date: 'May 08, 2026',
+      readTime: '10 min read',
+      category: 'Security',
+      tags: ['Cyber Security', 'Zero Trust', 'AI Security', 'SecOps'],
+      published: true,
+      metaTitle: 'Cyber Security Trends 2026: Zero-Trust & AI Threat Defense | AarviCloud',
+      metaDescription: 'Learn how Zero-Trust architecture and AI-powered threat detection protect modern enterprise cloud infrastructure.',
+      targetKeywords: 'Cyber Security Trends 2026, Zero Trust Architecture, Enterprise Security Audit, AI Threat Detection',
+      metaRobots: 'index, follow',
+      ogTitle: 'Cyber Security Trends: What You Need to Know',
+      ogDescription: 'How AI and Zero-Trust security protect enterprise cloud assets against modern cyber threats.',
+      ogImage: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/blog/cyber-security-trends-zero-trust-ai-defense`
+    },
+    {
+      id: 3,
+      slug: 'generative-ai-transforming-enterprise-workflows',
+      title: 'Generative AI: Transforming Enterprise Workflows & Productivity',
+      excerpt: 'How Large Language Models (LLMs) and RAG pipelines are integrated into daily business operations to boost ROI.',
+      content: `## Moving Generative AI from Prototype to Production
+Generative AI is now a proven productivity engine. Enterprises are integrating custom Retrieval-Augmented Generation (RAG) pipelines into internal knowledge bases, customer support, and code review workflows.
+
+### Data Privacy & Private LLM Deployment
+The key to successful enterprise AI adoption is strict data governance, private VPC model hosting, and hallucination guardrails.`,
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop',
+      author: 'Mike Johnson',
+      date: 'May 15, 2026',
+      readTime: '11 min read',
+      category: 'AI',
+      tags: ['Generative AI', 'LLM', 'Enterprise Automation', 'RAG'],
+      published: true,
+      metaTitle: 'Generative AI: Transforming Enterprise Workflows | AarviCloud',
+      metaDescription: 'Discover how enterprises integrate Large Language Models (LLMs) and RAG systems to automate document analysis, coding, and customer operations.',
+      targetKeywords: 'Generative AI Enterprise, LLM Integration Services, RAG Pipeline Development, AI Workflow Automation',
+      metaRobots: 'index, follow',
+      ogTitle: 'Generative AI: Transforming Enterprise Workflows',
+      ogDescription: 'How Large Language Models (LLMs) are being integrated into daily business operations to boost productivity.',
+      ogImage: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/blog/generative-ai-transforming-enterprise-workflows`
+    },
+    {
+      id: 4,
+      slug: 'hybrid-cloud-best-of-both-worlds',
+      title: 'Hybrid Cloud Architecture: The Best of Both Worlds for Enterprises',
+      excerpt: 'Why regulated organizations choose a unified mix of private infrastructure and public cloud for mission-critical workloads.',
+      content: `## Balancing Compliance and Cloud Elasticity
+Hybrid cloud offers the elastic scalability of AWS, Azure, and GCP alongside the regulatory control of private on-premises infrastructure.
+
+### Workload Orchestration with Kubernetes
+Using containerized workloads allows seamless portability across private data centers and public cloud availability zones.`,
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop',
+      author: 'Sarah Wilson',
+      date: 'May 12, 2026',
+      readTime: '9 min read',
+      category: 'Cloud',
+      tags: ['Hybrid Cloud', 'Kubernetes', 'Enterprise IT', 'Cloud Architecture'],
+      published: true,
+      metaTitle: 'Hybrid Cloud Architecture: The Best of Both Worlds | AarviCloud',
+      metaDescription: 'Learn why enterprises combine private infrastructure and public cloud for optimal security, compliance, and scalability.',
+      targetKeywords: 'Hybrid Cloud Solutions, Enterprise Cloud Migration, Private and Public Cloud, Kubernetes Orchestration',
+      metaRobots: 'index, follow',
+      ogTitle: 'Hybrid Cloud: The Best of Both Worlds',
+      ogDescription: 'Why many organizations are choosing a mix of private and public cloud for their infrastructure.',
+      ogImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/blog/hybrid-cloud-best-of-both-worlds`
+    },
+    {
+      id: 5,
+      slug: 'ai-agents-next-frontier-in-automation',
+      title: 'AI Agents: The Next Frontier in Autonomous Enterprise Automation',
+      excerpt: 'Moving beyond simple chatbots to autonomous multi-agent systems that plan, execute tools, and complete complex workflows.',
+      content: `## What Makes Autonomous AI Agents Different?
+Unlike static chatbots, AI agents can reason over goals, call external APIs, query databases, and collaborate in multi-agent workflows to resolve complex operational tickets end-to-end.`,
+      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop',
+      author: 'David Chen',
+      date: 'May 18, 2026',
+      readTime: '10 min read',
+      category: 'AI',
+      tags: ['AI Agents', 'Autonomous Systems', 'LangChain', 'CrewAI'],
+      published: true,
+      metaTitle: 'AI Agents: The Next Frontier in Autonomous Automation | AarviCloud',
+      metaDescription: 'Explore how autonomous AI agents move beyond chatbots to execute complex multi-step business workflows automatically.',
+      targetKeywords: 'AI Agents Development, Autonomous AI Workflows, CrewAI LangChain Developers, Enterprise AI Automation',
+      metaRobots: 'index, follow',
+      ogTitle: 'AI Agents: The Next Frontier in Automation',
+      ogDescription: 'Moving beyond simple chatbots to autonomous agents that can perform complex tasks.',
+      ogImage: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/blog/ai-agents-next-frontier-in-automation`
+    },
+    {
+      id: 6,
+      slug: 'cloud-security-best-practices-multi-cloud',
+      title: 'Cloud Security Best Practices in a Multi-Cloud World',
+      excerpt: 'Managing unified security policies, IAM governance, and compliance across AWS, Azure, and Google Cloud simultaneously.',
+      content: `## Securing Multi-Cloud Environments
+Managing AWS, Microsoft Azure, and Google Cloud simultaneously requires centralized Cloud Security Posture Management (CSPM), automated IAM auditing, and infrastructure-as-code policy checks.`,
+      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop',
+      author: 'Elena Rodriguez',
+      date: 'May 20, 2026',
+      readTime: '11 min read',
+      category: 'Security',
+      tags: ['Cloud Security', 'Multi-Cloud', 'AWS', 'Azure', 'Compliance'],
+      published: true,
+      metaTitle: 'Cloud Security Best Practices in a Multi-Cloud World | AarviCloud',
+      metaDescription: 'Master multi-cloud security across AWS, Azure, and GCP with centralized IAM governance and automated compliance monitoring.',
+      targetKeywords: 'Multi-Cloud Security Best Practices, Cloud Security Audit, AWS Azure GCP Security, CSPM',
+      metaRobots: 'index, follow',
+      ogTitle: 'Cloud Security Best Practices in a Multi-Cloud World',
+      ogDescription: 'Managing security across AWS, Azure, and Google Cloud simultaneously.',
+      ogImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/blog/cloud-security-best-practices-multi-cloud`
+    },
+    {
+      id: 7,
+      slug: 'mastering-mern-stack-in-2026',
+      title: 'Mastering the MERN Stack in 2026 for Scalable Web Applications',
+      excerpt: 'Why MongoDB, Express, React 19, and Node.js remain the top architecture choice for high-growth SaaS and enterprise portals.',
+      content: `## Why MERN Stack Dominates Modern Full-Stack Engineering
+With React 19 concurrent features and Node.js 24 performance improvements, building type-safe, real-time web applications with the MERN stack delivers unmatched developer velocity and scalability.`,
+      image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=2070&auto=format&fit=crop',
+      author: 'Alex Rivera',
+      date: 'May 22, 2026',
+      readTime: '12 min read',
+      category: 'Development',
+      tags: ['MERN Stack', 'React 19', 'Node.js', 'Full Stack Development'],
+      published: true,
+      metaTitle: 'Mastering the MERN Stack in 2026 | Full-Stack Development | AarviCloud',
+      metaDescription: 'Learn why React 19, Node.js, Express, and MongoDB remain the premier full-stack architecture for scalable enterprise web apps.',
+      targetKeywords: 'MERN Stack Development Company, Hire React Node.js Developers, Full Stack Web Development 2026',
+      metaRobots: 'index, follow',
+      ogTitle: 'Mastering the MERN Stack in 2026',
+      ogDescription: 'Why the combination of MongoDB, Express, React, and Node.js remains the top choice for full-stack developers.',
+      ogImage: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/blog/mastering-mern-stack-in-2026`
+    },
+    {
+      id: 8,
+      slug: 'python-king-of-modern-ai-programming',
+      title: 'Python: The King of Modern AI & Enterprise Backend Programming',
+      excerpt: 'From FastAPI microservices to PyTorch deep learning, why Python is the most versatile language for enterprise engineering.',
+      content: `## Python at the Center of AI and Data Engineering
+Python's rich ecosystem—spanning FastAPI, Django, PyTorch, TensorFlow, and Polars—makes it indispensable for teams building AI-native backends and data pipelines.`,
+      image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop',
+      author: 'Sam Peterson',
+      date: 'May 25, 2026',
+      readTime: '10 min read',
+      category: 'Programming',
+      tags: ['Python', 'FastAPI', 'AI Development', 'Backend Engineering'],
+      published: true,
+      metaTitle: 'Python: The King of Modern AI & Backend Programming | AarviCloud',
+      metaDescription: 'Discover why Python powers modern AI engineering, FastAPI microservices, and enterprise automation in 2026.',
+      targetKeywords: 'Python Development Company, Hire Python AI Developers, FastAPI Django Development',
+      metaRobots: 'index, follow',
+      ogTitle: 'Python: The King of Modern Programming',
+      ogDescription: 'From automation to AI, why Python is the most versatile language for developers today.',
+      ogImage: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/blog/python-king-of-modern-ai-programming`
+    },
+    {
+      id: 9,
+      slug: 'data-science-turning-enterprise-data-into-insights',
+      title: 'Data Science & Predictive Analytics: Turning Data into Actionable Insights',
+      excerpt: 'How machine learning models and cloud-native data warehouses help executives forecast demand and personalize customer journeys.',
+      content: `## Driving Executive Decisions with Predictive Analytics
+By combining cloud data warehouses like Snowflake with modern ML frameworks, enterprises transform raw operational logs into real-time revenue and retention forecasts.`,
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
+      author: 'Dr. Emily Chen',
+      date: 'May 28, 2026',
+      readTime: '11 min read',
+      category: 'Data Science',
+      tags: ['Data Science', 'Predictive Analytics', 'Machine Learning', 'BI'],
+      published: true,
+      metaTitle: 'Data Science: Turning Enterprise Data into Actionable Insights | AarviCloud',
+      metaDescription: 'Learn how advanced data science, machine learning, and cloud analytics help businesses forecast trends and optimize ROI.',
+      targetKeywords: 'Data Science Consulting, Predictive Analytics Solutions, Machine Learning Engineering, Business Intelligence',
+      metaRobots: 'index, follow',
+      ogTitle: 'Data Science: Turning Data into Insights',
+      ogDescription: 'How advanced analytics and machine learning are helping businesses make better decisions.',
+      ogImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/blog/data-science-turning-enterprise-data-into-insights`
+    }
+  ],
+
+  portfolioProjects: [
+    { id: 18, title: 'Delta Terminal V3 - Algo Trading', category: 'Development', image: 'https://images.unsplash.com/photo-1621761191319-c6fb62004040?q=80&w=2070&auto=format&fit=crop', desc: 'An algorithmic trading software featuring real-time crypto and asset streaming using Delta Exchange API.', tech: ['React', 'Delta API', 'WebSockets'], url: 'https://delta.gujjucode.com/', featuredOnHome: true, published: true },
+    { id: 17, title: "Ambaji's Online Shopping", category: 'Development', image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2070&auto=format&fit=crop', desc: 'An all-in-one grocery e-commerce web platform and mobile application featuring live stock tracking.', tech: ['Laravel', 'React Native', 'MySQL'], url: 'https://ambajis.com/', featuredOnHome: false, published: true },
+    { id: 16, title: 'AI Beard & Mustache Filter Pro', category: 'Development', image: 'https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=2080&auto=format&fit=crop', desc: 'An AI-powered mobile application built for virtual try-ons of beard and mustache styles.', tech: ['Flutter', 'Dart', 'TensorFlow Lite'], url: 'https://play.google.com/store/apps/details?id=com.ai.beard.mustache.filter.pro', featuredOnHome: false, published: true },
+    { id: 15, title: 'Divya Rathod Beauty Salon', category: 'Development', image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=2074&auto=format&fit=crop', desc: 'A premium beauty salon website featuring a custom online appointment booking system.', tech: ['React', 'Node.js', 'MongoDB'], url: 'https://divyarathod.com/', featuredOnHome: false, published: true },
+    { id: 14, title: 'Global Link Holidays', category: 'Development', image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop', desc: 'An interactive tour and travel booking platform providing seamless holiday planning.', tech: ['React', 'Node.js'], url: 'https://globallinkholidays.com/', featuredOnHome: true, published: true },
+    { id: 1, title: 'Global Bank Cloud Migration', category: 'Cloud', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2026&auto=format&fit=crop', desc: 'Seamless migration of legacy banking systems to a hybrid cloud infrastructure.', tech: ['AWS', 'Terraform', 'Kubernetes'], url: '', featuredOnHome: false, published: true },
+    { id: 2, title: 'E-Commerce Security Audit', category: 'Security', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop', desc: 'Comprehensive security overhaul for a multi-million dollar retail platform.', tech: ['OWASP', 'Wireshark', 'Burp Suite'], url: '', featuredOnHome: false, published: true },
+    { id: 3, title: 'Aviation Management App', category: 'Development', image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=2070&auto=format&fit=crop', desc: 'Real-time flight tracking and resource management application.', tech: ['React', 'Node.js', 'PostgreSQL'], url: '', featuredOnHome: false, published: true },
+    { id: 4, title: 'AI-Powered Log Analysis', category: 'Security', image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop', desc: 'Implementing machine learning to detect anomalies in server logs.', tech: ['Python', 'TensorFlow', 'ELK Stack'], url: '', featuredOnHome: false, published: true },
+    { id: 5, title: 'Telecom Network Optimization', category: 'Cloud', image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop', desc: 'Optimizing high-traffic network nodes for 5G readiness.', tech: ['5G', 'Docker', 'Go'], url: '', featuredOnHome: false, published: true },
+    { id: 6, title: 'HealthTech Patient Portal', category: 'Development', image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop', desc: 'Secure and HIPAA-compliant communication platform for doctors and patients.', tech: ['React', 'Express', 'MongoDB'], url: '', featuredOnHome: false, published: true },
+    { id: 7, title: 'MERN Real-Estate Platform', category: 'Development', image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073&auto=format&fit=crop', desc: 'A full-featured property listing and management system built with the MERN stack.', tech: ['MongoDB', 'Express', 'React', 'Node.js'], url: '', featuredOnHome: false, published: true },
+    { id: 8, title: 'Python AI Sentiment Analyzer', category: 'Development', image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop', desc: 'Advanced natural language processing tool for analyzing customer feedback in real-time.', tech: ['Python', 'NLTK', 'Flask'], url: '', featuredOnHome: false, published: true },
+    { id: 9, title: 'MERN Inventory System', category: 'Development', image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop', desc: 'Cloud-based inventory tracking with real-time updates and analytics.', tech: ['MongoDB', 'Express', 'React', 'Node.js'], url: '', featuredOnHome: false, published: true },
+    { id: 10, title: 'Python Automated Trading Bot', category: 'Development', image: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=2070&auto=format&fit=crop', desc: 'Algorithm-driven trading platform for automated cryptocurrency analysis and execution.', tech: ['Python', 'Binance API', 'Pandas'], url: '', featuredOnHome: false, published: true },
+    { id: 11, title: 'Smart HRMS', category: 'Development', image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=2070&auto=format&fit=crop', desc: 'Automate payroll, attendance, and recruitment with AI-driven insights.', tech: ['React', 'Node.js', 'MySQL'], url: '', featuredOnHome: false, published: true },
+    { id: 12, title: 'EduTech Pro', category: 'Development', image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070&auto=format&fit=crop', desc: 'Comprehensive management system for schools and colleges with E-Learning integration.', tech: ['React', 'Express', 'PostgreSQL'], url: '', featuredOnHome: false, published: true },
+    { id: 13, title: 'Enterprise Core', category: 'Development', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop', desc: 'Unified ERP solution for inventory, finance, and supply chain management.', tech: ['Angular', 'Java', 'Spring Boot'], url: '', featuredOnHome: false, published: true }
+  ],
+
+  caseStudies: [
+    {
+      id: 1,
+      slug: 'merchinator-ecommerce-platform',
+      title: 'Merchinator',
+      fullTitle: 'Merchinator - Enterprise E-Commerce Platform',
+      sectionCategory: 'Fortune 500 Clients',
+      badgeCategory: 'Fortune 500',
+      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop',
+      isNew: true,
+      challenge: 'The client needed to scale their legacy e-commerce platform to handle over 1 million daily active users while maintaining sub-second response times.',
+      solution: 'We implemented a cloud-native microservices architecture using Node.js and React, deployed on AWS with auto-scaling and Redis caching.',
+      results: 'Response times improved by 60%, and the platform effortlessly handles peak traffic during global holiday seasons.',
+      tech: ['React', 'Node.js', 'AWS', 'Redis', 'PostgreSQL'],
+      features: ['Real-time Inventory Management', 'AI-Powered Recommendations', 'Multi-Currency Support', 'Advanced Analytics Dashboard'],
+      stats: ['60% Faster Performance', '1M+ Active Users', 'Enterprise Grade Security'],
+      published: true,
+      metaTitle: 'Merchinator E-Commerce Case Study | Fortune 500 Cloud Scaling | AarviCloud',
+      metaDescription: 'How AarviCloud scaled Merchinator to 1M+ daily active users with 60% faster response times using React, Node.js, AWS, and Redis.',
+      targetKeywords: 'E-Commerce Scaling Case Study, AWS Microservices, React Node.js Enterprise, Merchinator',
+      metaRobots: 'index, follow',
+      ogTitle: 'Merchinator Case Study — Scaling E-Commerce to 1M+ Daily Users',
+      ogDescription: 'Microservices architecture on AWS delivering 60% faster performance for a Fortune 500 retail platform.',
+      ogImage: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/case-study/merchinator-ecommerce-platform`
+    },
+    {
+      id: 2,
+      slug: 'edward-jones-financial-app',
+      title: 'Edward Jones',
+      fullTitle: 'Edward Jones - Enterprise Financial Advisory Platform',
+      sectionCategory: 'Fortune 500 Clients',
+      badgeCategory: 'Fortune 500',
+      image: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=2070&auto=format&fit=crop',
+      isNew: true,
+      challenge: 'Modernizing a complex financial wealth management system with strict regulatory compliance and real-time market streaming.',
+      solution: 'Built a zero-trust cloud-native web application using ReactJS and Java Spring Boot with end-to-end encryption and Kafka event streaming.',
+      results: 'Increased financial advisor productivity by 40% and boosted client portal engagement across 500k+ accounts.',
+      tech: ['ReactJS', 'Spring Boot', 'Azure', 'MongoDB', 'Kafka'],
+      features: ['Portfolio Management', 'Secure Messaging', 'Real-time Market Data', 'Automated Compliance Reporting'],
+      stats: ['40% Higher Advisor Productivity', '99.99% Uptime SLA', 'SOC2 & ISO Compliant'],
+      published: true,
+      metaTitle: 'Edward Jones Financial App Case Study | FinTech Engineering | AarviCloud',
+      metaDescription: 'Discover how AarviCloud engineered a real-time wealth management platform with ReactJS, Spring Boot, and Kafka.',
+      targetKeywords: 'FinTech Case Study, Wealth Management Software, React Spring Boot Azure, Financial App Development',
+      metaRobots: 'index, follow',
+      ogTitle: 'Edward Jones Financial App Case Study | AarviCloud',
+      ogDescription: 'Increasing financial advisor productivity by 40% with secure cloud-native engineering.',
+      ogImage: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/case-study/edward-jones-financial-app`
+    },
+    {
+      id: 3,
+      slug: 'the-container-store-supply-chain',
+      title: 'The Container Store',
+      fullTitle: 'The Container Store - Omnichannel Retail & Inventory Cloud',
+      sectionCategory: 'Fortune 500 Clients',
+      badgeCategory: 'Fortune 500',
+      image: 'https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?q=80&w=2070&auto=format&fit=crop',
+      isNew: true,
+      challenge: 'Unifying online and in-store inventory visibility across hundreds of retail warehouses in real time.',
+      solution: 'Engineered a distributed omnichannel order management and warehouse sync engine powered by Node.js, GraphQL, and AWS.',
+      results: 'Reduced stockout incidents by 48% and accelerated same-day curbside pickup fulfillment by 3x.',
+      tech: ['React', 'Node.js', 'GraphQL', 'AWS', 'PostgreSQL'],
+      features: ['Omnichannel Inventory Sync', 'Predictive Demand Forecasting', 'Curbside Fulfillment App', 'Warehouse Analytics'],
+      stats: ['48% Fewer Stockouts', '3x Faster Fulfillment', '100% Real-Time Sync'],
+      published: true,
+      metaTitle: 'The Container Store Case Study | Omnichannel Retail Cloud | AarviCloud',
+      metaDescription: 'How AarviCloud unified omnichannel inventory and reduced stockouts by 48% for a leading retail brand.',
+      targetKeywords: 'Omnichannel Retail Case Study, Supply Chain Software, Inventory Cloud AWS',
+      metaRobots: 'index, follow',
+      ogTitle: 'The Container Store Case Study | AarviCloud',
+      ogDescription: 'Real-time omnichannel retail inventory and fulfillment cloud transformation.',
+      ogImage: 'https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/case-study/the-container-store-supply-chain`
+    },
+    {
+      id: 4,
+      slug: 'relatient-patient-engagement',
+      title: 'Relatient',
+      fullTitle: 'Relatient - Intelligent Patient Scheduling & Engagement',
+      sectionCategory: 'Healthcare',
+      badgeCategory: 'Healthcare',
+      image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop',
+      isNew: true,
+      challenge: 'High patient no-show rates and fragmented EHR scheduling across multi-location hospital networks.',
+      solution: 'Developed a HIPAA-compliant patient self-scheduling and automated two-way SMS/WhatsApp reminder platform integrated with HL7/FHIR.',
+      results: 'Reduced patient no-shows by 35% and automated 80% of routine appointment confirmations.',
+      tech: ['React', 'Node.js', 'HL7 FHIR', 'AWS', 'PostgreSQL'],
+      features: ['HIPAA-Compliant Messaging', 'EHR/EMR Bi-Directional Sync', 'Smart Waitlist Automation', 'Digital Patient Intake'],
+      stats: ['35% Reduction in No-Shows', '80% Automated Scheduling', 'HIPAA Compliant'],
+      published: true,
+      metaTitle: 'Relatient Healthcare Case Study | Patient Engagement Platform | AarviCloud',
+      metaDescription: 'Learn how AarviCloud built a HIPAA-compliant patient scheduling platform that reduced hospital no-shows by 35%.',
+      targetKeywords: 'Healthcare Software Case Study, HIPAA Patient Portal, HL7 FHIR Integration',
+      metaRobots: 'index, follow',
+      ogTitle: 'Relatient Healthcare Case Study | AarviCloud',
+      ogDescription: 'Reducing patient no-shows by 35% with intelligent HIPAA-compliant scheduling.',
+      ogImage: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/case-study/relatient-patient-engagement`
+    },
+    {
+      id: 5,
+      slug: 'cardiacdata-analytics-platform',
+      title: 'CardiacData Analytics',
+      fullTitle: 'CardiacData Analytics - Real-Time Telemetry & AI Diagnostics',
+      sectionCategory: 'Healthcare',
+      badgeCategory: 'Healthcare',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
+      isNew: true,
+      challenge: 'Processing continuous wearable ECG telemetry streams from thousands of remote cardiac patients with zero latency.',
+      solution: 'Built a real-time IoT streaming pipeline with Python, FastAPI, and TensorFlow arrhythmia detection models.',
+      results: 'Enabled early arrhythmia alerts 4x faster than manual review while supporting 50,000+ connected wearable devices.',
+      tech: ['Python', 'TensorFlow', 'React', 'FastAPI', 'TimescaleDB'],
+      features: ['Live ECG Telemetry Streaming', 'AI Arrhythmia Detection', 'Cardiologist Alert Console', 'Automated Clinical Reports'],
+      stats: ['4x Faster Alerting', '50K+ Connected Devices', '99.2% Model Sensitivity'],
+      published: true,
+      metaTitle: 'CardiacData Analytics Case Study | Healthcare IoT & AI | AarviCloud',
+      metaDescription: 'Real-time wearable ECG telemetry and AI arrhythmia detection engineered by AarviCloud.',
+      targetKeywords: 'Healthcare AI Case Study, Remote Patient Monitoring IoT, Python TensorFlow Medical AI',
+      metaRobots: 'index, follow',
+      ogTitle: 'CardiacData Analytics Case Study | AarviCloud',
+      ogDescription: 'AI-driven remote cardiac telemetry monitoring for 50,000+ patients.',
+      ogImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/case-study/cardiacdata-analytics-platform`
+    },
+    {
+      id: 6,
+      slug: 'medisight-healthcare-ai',
+      title: 'Medisight',
+      fullTitle: 'Medisight - Healthcare AI Medical Imaging Platform',
+      sectionCategory: 'Healthcare',
+      badgeCategory: 'Healthcare',
+      image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2070&auto=format&fit=crop',
+      isNew: true,
+      challenge: 'Developing an AI-driven platform for medical image analysis to assist radiologists and doctors in early diagnosis.',
+      solution: 'Leveraged Python and TensorFlow to build deep learning vision models integrated with a high-resolution React DICOM viewer.',
+      results: 'Diagnostic accuracy increased by 25%, and radiology triage turnaround time was reduced by half.',
+      tech: ['Python', 'TensorFlow', 'React', 'FastAPI', 'AWS S3'],
+      features: ['Automated Image Labeling', 'Cloud-based DICOM Storage', 'Doctor Collaboration Tools', 'Detailed Report Generation'],
+      stats: ['25% Higher Diagnostic Accuracy', '50% Faster Turnaround', 'HIPAA & GDPR Ready'],
+      published: true,
+      metaTitle: 'Medisight Healthcare AI Case Study | Medical Image Analysis | AarviCloud',
+      metaDescription: 'How AarviCloud engineered Medisight AI to boost diagnostic accuracy by 25% and cut radiology turnaround time by 50%.',
+      targetKeywords: 'Medical Imaging AI Case Study, Healthcare AI Development, TensorFlow Radiology',
+      metaRobots: 'index, follow',
+      ogTitle: 'Medisight - Healthcare AI Case Study | AarviCloud',
+      ogDescription: 'AI-driven medical image analysis increasing diagnostic accuracy by 25%.',
+      ogImage: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/case-study/medisight-healthcare-ai`
+    },
+    {
+      id: 7,
+      slug: 'highworth-capital-investment-portal',
+      title: 'Highworth Capital',
+      fullTitle: 'Highworth Capital - Institutional Portfolio Analytics',
+      sectionCategory: 'BFSI',
+      badgeCategory: 'BFSI',
+      image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071&auto=format&fit=crop',
+      isNew: true,
+      challenge: 'Consolidating multi-asset risk exposure and real-time NAV calculations for institutional hedge fund clients.',
+      solution: 'Engineered a low-latency quantitative analytics dashboard using React, Python FastAPI, and Snowflake.',
+      results: 'Automated daily risk reporting from 6 hours down to 4 minutes with real-time portfolio stress testing.',
+      tech: ['React', 'Python', 'Snowflake', 'Docker', 'AWS'],
+      features: ['Real-Time NAV Engine', 'Multi-Asset Risk Heatmaps', 'Automated LP Investor Reports', 'Audit-Ready Compliance Logs'],
+      stats: ['98% Faster Risk Reporting', '$2B+ Assets Tracked', 'Enterprise Grade Security'],
+      published: true,
+      metaTitle: 'Highworth Capital BFSI Case Study | Quantitative FinTech | AarviCloud',
+      metaDescription: 'Institutional portfolio analytics and real-time risk engine built by AarviCloud.',
+      targetKeywords: 'BFSI Software Case Study, Hedge Fund Analytics Platform, FinTech Python React',
+      metaRobots: 'index, follow',
+      ogTitle: 'Highworth Capital Case Study | AarviCloud',
+      ogDescription: 'Real-time institutional risk analytics tracking $2B+ in assets.',
+      ogImage: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/case-study/highworth-capital-investment-portal`
+    },
+    {
+      id: 8,
+      slug: 'westmere-insurance-group-claims-ai',
+      title: 'Westmere Insurance Group',
+      fullTitle: 'Westmere Insurance Group - AI Claims Automation',
+      sectionCategory: 'BFSI',
+      badgeCategory: 'BFSI',
+      image: 'https://images.unsplash.com/photo-1509017174183-0b7e0278f1ec?q=80&w=2070&auto=format&fit=crop',
+      isNew: true,
+      challenge: 'Slow manual insurance claims processing leading to high operational overhead and delayed customer payouts.',
+      solution: 'Deployed an AI document extraction and fraud scoring pipeline integrated with a modern React customer claims portal.',
+      results: '70% of standard claims are now auto-adjudicated in under 10 minutes with a 32% drop in fraudulent payouts.',
+      tech: ['React', 'Node.js', 'Python', 'PostgreSQL', 'Azure'],
+      features: ['AI Claims OCR & Triage', 'Automated Fraud Scoring', 'Instant Policyholder Portal', 'Underwriting Analytics'],
+      stats: ['70% Auto-Adjudication', '10-Min Claim Settlement', '32% Fraud Reduction'],
+      published: true,
+      metaTitle: 'Westmere Insurance AI Claims Case Study | InsurTech | AarviCloud',
+      metaDescription: 'How AarviCloud automated 70% of insurance claims adjudication using AI OCR and fraud detection.',
+      targetKeywords: 'InsurTech Case Study, AI Claims Processing Software, BFSI Digital Transformation',
+      metaRobots: 'index, follow',
+      ogTitle: 'Westmere Insurance Group Case Study | AarviCloud',
+      ogDescription: 'AI-powered insurance claims automation and fraud detection.',
+      ogImage: 'https://images.unsplash.com/photo-1509017174183-0b7e0278f1ec?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/case-study/westmere-insurance-group-claims-ai`
+    },
+    {
+      id: 9,
+      slug: 'gold-trust-capital-wealth-tech',
+      title: 'Gold trust capital',
+      fullTitle: 'Gold Trust Capital - Digital Bullion & Wealth Platform',
+      sectionCategory: 'BFSI',
+      badgeCategory: 'BFSI',
+      image: 'https://images.unsplash.com/photo-1610375461246-83df859d849d?q=80&w=2070&auto=format&fit=crop',
+      isNew: true,
+      challenge: 'Enabling retail and institutional investors to buy, vault, and trade fractional physical gold with live spot pricing.',
+      solution: 'Built a high-concurrency trading and vault ledger platform using React, VueJS, Node.js, and WebSockets.',
+      results: 'Processed over $150M in annualized transaction volume with sub-100ms live price execution.',
+      tech: ['VueJS', 'React', 'Node.js', 'Redis', 'PostgreSQL'],
+      features: ['Live Spot Price Streaming', 'Fractional Vault Ledger', 'Automated KYC/AML Onboarding', 'Instant Bank Settlement'],
+      stats: ['$150M+ Volume Processed', '<100ms Trade Execution', '100% Audited Vault Ledger'],
+      published: true,
+      metaTitle: 'Gold Trust Capital Case Study | FinTech Trading Platform | AarviCloud',
+      metaDescription: 'High-frequency digital gold trading and wealth management platform engineered by AarviCloud.',
+      targetKeywords: 'Gold Trading Platform Development, FinTech WebSockets Case Study, VueJS Node.js',
+      metaRobots: 'index, follow',
+      ogTitle: 'Gold Trust Capital Case Study | AarviCloud',
+      ogDescription: 'Digital bullion trading platform with sub-100ms execution.',
+      ogImage: 'https://images.unsplash.com/photo-1610375461246-83df859d849d?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/case-study/gold-trust-capital-wealth-tech`
+    },
+    {
+      id: 10,
+      slug: 'greenova-clean-energy-iot',
+      title: 'Greenova',
+      fullTitle: 'Greenova - Smart Solar & Clean Energy Grid Management',
+      sectionCategory: 'ReactJS',
+      badgeCategory: 'ReactJS',
+      image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop',
+      isNew: true,
+      challenge: 'Monitoring thousands of distributed commercial solar inverters and battery storage units in a single real-time command center.',
+      solution: 'Created a high-performance ReactJS telemetry dashboard backed by Node.js MQTT brokers and time-series analytics.',
+      results: 'Improved solar grid energy yield by 18% through predictive maintenance alerts.',
+      tech: ['ReactJS', 'TypeScript', 'Node.js', 'MQTT', 'AWS IoT'],
+      features: ['Real-Time Inverter Telemetry', 'Predictive Fault Maintenance', 'Carbon Offset Reporting', 'Smart Grid Load Balancing'],
+      stats: ['18% Higher Energy Yield', '10K+ IoT Sensors', 'Real-Time Grid Analytics'],
+      published: true,
+      metaTitle: 'Greenova Clean Energy IoT Case Study | ReactJS Dashboard | AarviCloud',
+      metaDescription: 'Smart solar and clean energy IoT monitoring platform built with ReactJS and AWS IoT.',
+      targetKeywords: 'CleanTech IoT Case Study, ReactJS Telemetry Dashboard, Solar Grid Software',
+      metaRobots: 'index, follow',
+      ogTitle: 'Greenova Clean Energy Case Study | AarviCloud',
+      ogDescription: 'Boosting solar energy yield by 18% with ReactJS and AWS IoT.',
+      ogImage: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/case-study/greenova-clean-energy-iot`
+    },
+    {
+      id: 11,
+      slug: 'recart-headless-commerce',
+      title: 'ReCart',
+      fullTitle: 'ReCart - AI Conversational Marketing & Cart Recovery SaaS',
+      sectionCategory: 'ReactJS',
+      badgeCategory: 'ReactJS',
+      image: 'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=2070&auto=format&fit=crop',
+      isNew: true,
+      challenge: 'E-commerce brands were losing 70%+ of shopping carts without personalized, real-time recovery workflows.',
+      solution: 'Engineered a ReactJS SaaS flow builder and AI SMS/WhatsApp cart recovery engine deeply integrated with Shopify.',
+      results: 'Recovered over $40M in abandoned cart revenue across 3,500+ active D2C merchant stores.',
+      tech: ['ReactJS', 'Node.js', 'Shopify API', 'Redis', 'MongoDB'],
+      features: ['Visual Flow Builder', 'AI Copywriting Assistant', 'One-Click Checkout Links', 'Real-Time Attribution ROI'],
+      stats: ['$40M+ Revenue Recovered', '3,500+ Active Merchants', '28% Cart Recovery Rate'],
+      published: true,
+      metaTitle: 'ReCart E-Commerce SaaS Case Study | ReactJS & Shopify | AarviCloud',
+      metaDescription: 'How AarviCloud built an AI cart recovery SaaS that recovered $40M+ for 3,500+ merchants.',
+      targetKeywords: 'Shopify SaaS Development, ReactJS Flow Builder, E-Commerce Cart Recovery AI',
+      metaRobots: 'index, follow',
+      ogTitle: 'ReCart SaaS Case Study | AarviCloud',
+      ogDescription: 'AI-driven cart recovery SaaS built with ReactJS and Node.js.',
+      ogImage: 'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/case-study/recart-headless-commerce`
+    },
+    {
+      id: 12,
+      slug: 'signease-digital-signature-saas',
+      title: 'Signease',
+      fullTitle: 'Signease - Enterprise eSignature & Contract Lifecycle SaaS',
+      sectionCategory: 'ReactJS',
+      badgeCategory: 'ReactJS',
+      image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop',
+      isNew: true,
+      challenge: 'Legal and sales teams needed a legally binding, tamper-proof PDF contract signing workflow with AI clause review.',
+      solution: 'Developed a browser-based document editor and cryptographic signature platform using ReactJS, WebAssembly, and Node.js.',
+      results: 'Cut average B2B contract turnaround time from 5 days to 45 minutes.',
+      tech: ['ReactJS', 'Node.js', 'AWS KMS', 'PostgreSQL', 'PDF.js'],
+      features: ['Cryptographic Digital Signatures', 'AI Contract Risk Summarizer', 'Multi-Party Signing Order', 'Tamper-Proof Audit Trail'],
+      stats: ['90% Faster Contract Closing', '256-Bit SHA Encryption', 'eIDAS & ESIGN Compliant'],
+      published: true,
+      metaTitle: 'Signease eSignature SaaS Case Study | ReactJS Engineering | AarviCloud',
+      metaDescription: 'Enterprise eSignature and AI contract lifecycle management SaaS engineered by AarviCloud.',
+      targetKeywords: 'eSignature Software Development, Contract Lifecycle SaaS, ReactJS PDF Editor',
+      metaRobots: 'index, follow',
+      ogTitle: 'Signease Digital Signature SaaS Case Study | AarviCloud',
+      ogDescription: 'Cutting contract turnaround from 5 days to 45 minutes with secure eSignatures.',
+      ogImage: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/case-study/signease-digital-signature-saas`
+    },
+    {
+      id: 13,
+      slug: 'educare-lms-platform',
+      title: 'Educare',
+      fullTitle: 'Educare - Interactive EdTech & Virtual Classroom Platform',
+      sectionCategory: 'VueJS',
+      badgeCategory: 'VueJS',
+      image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=2074&auto=format&fit=crop',
+      isNew: true,
+      challenge: 'Delivering low-latency live video classrooms and adaptive AI quizzes to 200,000+ K-12 and university students.',
+      solution: 'Architected a responsive VueJS and Nuxt learning portal with WebRTC live streaming and AI study tutors.',
+      results: 'Increased student course completion rates by 52% across 400+ partner institutions.',
+      tech: ['VueJS', 'Nuxt.js', 'WebRTC', 'Node.js', 'PostgreSQL'],
+      features: ['Interactive Live Whiteboard', 'AI Personalized Quiz Engine', 'Parent & Teacher Analytics', 'Offline Video Sync'],
+      stats: ['200K+ Active Students', '52% Higher Completion', '400+ Partner Schools'],
+      published: true,
+      metaTitle: 'Educare EdTech LMS Case Study | VueJS & WebRTC | AarviCloud',
+      metaDescription: 'How AarviCloud built an interactive VueJS learning management system for 200,000+ students.',
+      targetKeywords: 'EdTech LMS Case Study, VueJS Application Development, Virtual Classroom Software',
+      metaRobots: 'index, follow',
+      ogTitle: 'Educare EdTech Platform Case Study | AarviCloud',
+      ogDescription: 'Empowering 200,000+ students with interactive live learning and AI tutoring.',
+      ogImage: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/case-study/educare-lms-platform`
+    },
+    {
+      id: 15,
+      slug: 'intelli-market-pro-analytics',
+      title: 'Intelli market pro',
+      fullTitle: 'Intelli Market Pro - AI Competitive Intelligence Suite',
+      sectionCategory: 'VueJS',
+      badgeCategory: 'VueJS',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2026&auto=format&fit=crop',
+      isNew: true,
+      challenge: 'Tracking real-time competitor pricing, ad spend, and SKU sentiment across 50+ global marketplaces.',
+      solution: 'Built a reactive VueJS analytics workbench powered by distributed Python scrapers and LLM sentiment classifiers.',
+      results: 'Helped enterprise retail clients improve gross margins by 14% via dynamic pricing automation.',
+      tech: ['VueJS', 'Python', 'FastAPI', 'ClickHouse', 'Docker'],
+      features: ['Dynamic Price Elasticity Engine', 'Competitor SKU Tracking', 'AI Review Sentiment Analysis', 'Executive BI Exports'],
+      stats: ['14% Margin Improvement', '50M+ SKUs Monitored Daily', 'Real-Time Price Alerts'],
+      published: true,
+      metaTitle: 'Intelli Market Pro Case Study | AI Market Intelligence | AarviCloud',
+      metaDescription: 'Real-time competitive pricing and market intelligence platform built with VueJS and Python.',
+      targetKeywords: 'Market Intelligence Software, Dynamic Pricing AI, VueJS Python Case Study',
+      metaRobots: 'index, follow',
+      ogTitle: 'Intelli Market Pro Case Study | AarviCloud',
+      ogDescription: 'Monitoring 50M+ SKUs daily with VueJS and AI sentiment analysis.',
+      ogImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/case-study/intelli-market-pro-analytics`
+    },
+    {
+      id: 16,
+      slug: 'shopwise-b2b-commerce',
+      title: 'ShopWise',
+      fullTitle: 'ShopWise - Enterprise B2B Wholesale Procurement Portal',
+      sectionCategory: 'AngularJS',
+      badgeCategory: 'Angular',
+      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=2089&auto=format&fit=crop',
+      isNew: true,
+      challenge: 'Digitizing complex tiered B2B wholesale pricing, credit limits, and bulk container ordering for global distributors.',
+      solution: 'Engineered a modular Angular enterprise portal integrated with SAP ERP and automated credit underwriting.',
+      results: 'Increased B2B self-service reorder volume by 65% and eliminated manual order entry errors.',
+      tech: ['Angular', '.NET Core', 'SQL Server', 'Azure', 'SAP API'],
+      features: ['Customer-Specific Tiered Pricing', 'Bulk CSV & Quick-Order Matrix', 'Live SAP ERP Inventory Sync', 'Automated Credit Terms'],
+      stats: ['65% Higher Reorder Volume', 'Zero Manual Entry Errors', '24/7 Self-Service B2B'],
+      published: true,
+      metaTitle: 'ShopWise B2B eCommerce Case Study | Angular & SAP ERP | AarviCloud',
+      metaDescription: 'How AarviCloud digitized B2B wholesale procurement with Angular, .NET Core, and SAP ERP integration.',
+      targetKeywords: 'B2B eCommerce Case Study, Angular Enterprise Portal, SAP ERP Integration',
+      metaRobots: 'index, follow',
+      ogTitle: 'ShopWise B2B Commerce Case Study | AarviCloud',
+      ogDescription: 'Increasing B2B wholesale reorder volume by 65% with Angular and SAP integration.',
+      ogImage: 'https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/case-study/shopwise-b2b-commerce`
+    },
+    {
+      id: 17,
+      slug: 'curex-treasury-fx-platform',
+      title: 'CuRex',
+      fullTitle: 'CuRex - Cross-Border Corporate Treasury & FX Hedging',
+      sectionCategory: 'AngularJS',
+      badgeCategory: 'Angular',
+      image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=2070&auto=format&fit=crop',
+      isNew: true,
+      challenge: 'Multinational CFOs needed a unified treasury workstation to hedge FX currency risk across 40+ global currencies.',
+      solution: 'Built a real-time Angular financial workstation with automated FX forward execution and SWIFT payment routing.',
+      results: 'Saved corporate treasury clients an average of 1.8% on cross-border FX spreads.',
+      tech: ['Angular', 'Java Spring Boot', 'Kafka', 'PostgreSQL', 'AWS'],
+      features: ['Multi-Currency Liquidity Aggregator', 'Automated FX Hedging Rules', 'SWIFT & SEPA Payment Hub', 'CFO Cashflow Forecasting'],
+      stats: ['1.8% FX Spread Savings', '40+ Currencies Supported', 'Bank-Grade Security'],
+      published: true,
+      metaTitle: 'CuRex Corporate Treasury & FX Case Study | Angular FinTech | AarviCloud',
+      metaDescription: 'Cross-border FX hedging and corporate treasury platform engineered with Angular and Java Spring Boot.',
+      targetKeywords: 'FX Trading Platform Case Study, Corporate Treasury Software, Angular Java FinTech',
+      metaRobots: 'index, follow',
+      ogTitle: 'CuRex Treasury & FX Platform Case Study | AarviCloud',
+      ogDescription: 'Cross-border corporate FX hedging across 40+ global currencies.',
+      ogImage: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/case-study/curex-treasury-fx-platform`
+    },
+    {
+      id: 18,
+      slug: 'forecast-ease-demand-planning',
+      title: 'Forecast ease',
+      fullTitle: 'Forecast Ease - AI Supply Chain Demand Planning',
+      sectionCategory: 'AngularJS',
+      badgeCategory: 'Angular',
+      image: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=2006&auto=format&fit=crop',
+      isNew: true,
+      challenge: 'Seasonal demand volatility was causing excess warehouse holding costs for FMCG manufacturers.',
+      solution: 'Combined an Angular planning grid with Prophet/XGBoost machine learning forecasting pipelines.',
+      results: 'Improved SKU-level forecast accuracy to 94% and reduced excess inventory holding costs by 27%.',
+      tech: ['Angular', 'Python', 'XGBoost', 'PostgreSQL', 'GCP'],
+      features: ['AI Seasonal Demand Modeling', 'Collaborative S&OP Workbench', 'Automated Safety Stock Alerts', 'ERP Purchase Order Sync'],
+      stats: ['94% Forecast Accuracy', '27% Lower Inventory Cost', 'Automated S&OP Planning'],
+      published: true,
+      metaTitle: 'Forecast Ease AI Demand Planning Case Study | Angular & ML | AarviCloud',
+      metaDescription: 'How AarviCloud achieved 94% supply chain forecast accuracy using Angular and XGBoost machine learning.',
+      targetKeywords: 'AI Demand Forecasting Case Study, Supply Chain ML Software, Angular Enterprise App',
+      metaRobots: 'index, follow',
+      ogTitle: 'Forecast Ease Demand Planning Case Study | AarviCloud',
+      ogDescription: '94% SKU forecast accuracy and 27% lower inventory costs with AI demand planning.',
+      ogImage: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=1200&auto=format&fit=crop',
+      ogUrl: `${DOMAIN}/case-study/forecast-ease-demand-planning`
+    }
+  ],
+
+  customPages: [
+    {
+      id: 1,
+      slug: 'erp-development-company-rajkot',
+      title: 'Custom ERP & CRM Development Company in Rajkot, India',
+      subtitle: 'Unify manufacturing, inventory, GST billing, HR, and sales into one scalable cloud ERP tailored to your business.',
+      badge: 'Enterprise ERP & CRM Solutions',
+      heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop',
+      contentSections: [
+        {
+          headingLevel: 'h2',
+          heading: 'Why Leading Enterprises Choose AarviCloud for Custom ERP Software',
+          body: 'Unlike rigid off-the-shelf software that charges per user and forces you to change your operations, AarviCloud engineers custom cloud ERP and CRM systems around your exact manufacturing, trading, or service workflows.',
+          bullets: [
+            '100% Custom Modules: Inventory, Production (BOM/MRP), GST Billing, CRM, and HRMS',
+            'Zero Per-User License Fees — Full Source Code & Cloud Ownership',
+            'Web + Mobile App (iOS & Android) for Real-Time Executive Dashboards',
+            'Seamless Integration with Tally, WhatsApp Business API, Payment Gateways & IoT'
+          ]
+        },
+        {
+          headingLevel: 'h3',
+          heading: 'Engineered with Enterprise Security & High Availability',
+          body: 'Our ERP architectures use React, Node.js, PostgreSQL, and AWS/Azure cloud infrastructure with role-based access control (RBAC), automated backups, and sub-second reporting.',
+          bullets: [
+            'Role-Based Access Control & Complete Audit Trails',
+            'Multi-Branch & Multi-Warehouse Cloud Synchronization',
+            'Dedicated Support Team in Rajkot, Gujarat'
+          ]
+        }
+      ],
+      ctaTitle: 'Ready to Build Your Custom ERP or CRM?',
+      ctaText: 'Schedule a free 30-minute architecture & workflow consultation with our senior ERP engineers.',
+      ctaBtnText: 'Book Free ERP Demo',
+      ctaBtnLink: '/contact',
+      showInNavbar: false,
+      showInFooter: true,
+      published: true,
+      metaTitle: 'Custom ERP & CRM Development Company in Rajkot, India | AarviCloud',
+      metaDescription: 'Hire AarviCloud, the leading custom ERP and CRM software development company in Rajkot, Gujarat. Automate manufacturing, inventory, billing, and sales.',
+      targetKeywords: 'ERP Development Company Rajkot, Custom CRM Software India, Manufacturing ERP Gujarat, Cloud ERP Developers',
+      metaRobots: 'index, follow',
+      ogTitle: 'Custom ERP & CRM Development Company in Rajkot | AarviCloud',
+      ogDescription: 'Tailored cloud ERP & CRM software for manufacturing, retail, and service enterprises.',
+      ogImage: `${DOMAIN}/api/og-default.svg`,
+      ogUrl: `${DOMAIN}/p/erp-development-company-rajkot`,
+      priority: 0.9,
+      changefreq: 'weekly',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    },
+    {
+      id: 2,
+      slug: 'ai-cloud-consulting-services',
+      title: 'Enterprise Generative AI & Cloud Consulting Services',
+      subtitle: 'Accelerate product velocity by 10x with custom LLM agents, RAG pipelines, and resilient AWS/Azure/GCP cloud architectures.',
+      badge: 'AI & Cloud Engineering',
+      heroImage: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop',
+      contentSections: [
+        {
+          headingLevel: 'h2',
+          heading: 'Production-Grade Generative AI & Autonomous Agents',
+          body: 'We move enterprises from AI experiments to secure, high-ROI production deployments using OpenAI, Claude, Gemini, LangChain, and private open-source LLMs.',
+          bullets: [
+            'Custom Enterprise RAG Knowledge Assistants',
+            'Autonomous AI Agents for Customer Support, FinOps & Operations',
+            'AI-Assisted MVP Launch in 15 Days',
+            'Zero-Trust Cloud Infrastructure on AWS, Azure & Google Cloud'
+          ]
+        }
+      ],
+      ctaTitle: 'Transform Your Workflow with Enterprise AI',
+      ctaText: 'Partner with AarviCloud to architect your next AI or cloud initiative.',
+      ctaBtnText: 'Speak With an AI Architect',
+      ctaBtnLink: '/contact',
+      showInNavbar: false,
+      showInFooter: true,
+      published: true,
+      metaTitle: 'Enterprise Generative AI & Cloud Consulting Services | AarviCloud',
+      metaDescription: 'Deploy custom Generative AI agents, RAG pipelines, and scalable AWS/Azure/GCP cloud infrastructure with AarviCloud.',
+      targetKeywords: 'Generative AI Consulting, Enterprise AI Agents, Cloud Architecture Services, AWS Azure GCP Consulting',
+      metaRobots: 'index, follow',
+      ogTitle: 'Enterprise Generative AI & Cloud Consulting Services | AarviCloud',
+      ogDescription: 'Production-grade LLMs, autonomous AI agents, and cloud-native engineering.',
+      ogImage: `${DOMAIN}/api/og-default.svg`,
+      ogUrl: `${DOMAIN}/p/ai-cloud-consulting-services`,
+      priority: 0.9,
+      changefreq: 'weekly',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    }
+  ],
+
+  contactSubmissions: []
+};
+
+module.exports = { defaultData, slugify };

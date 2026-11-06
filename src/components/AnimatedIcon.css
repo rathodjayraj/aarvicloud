@@ -1,0 +1,194 @@
+/* Animated Icon Global Styling */
+.animated-icon {
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+.animated-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Animations */
+
+/* 1. Pulse Animation */
+.pulse {
+  animation: icon-pulse 1.8s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.pulse-delayed {
+  animation: icon-pulse 1.8s ease-in-out infinite;
+  animation-delay: 0.9s;
+  transform-origin: center;
+}
+
+@keyframes icon-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+    fill: #00bcd4;
+  }
+}
+
+/* 2. Flow Animation */
+.flow-up {
+  animation: flow-up-anim 1.5s linear infinite;
+}
+
+.flow-down {
+  animation: flow-down-anim 1.5s linear infinite;
+}
+
+@keyframes flow-up-anim {
+  to {
+    stroke-dashoffset: -12;
+  }
+}
+
+@keyframes flow-down-anim {
+  to {
+    stroke-dashoffset: 12;
+  }
+}
+
+/* 3. Scanner Animation */
+.scanner {
+  animation: scan-anim 2.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes scan-anim {
+  0%, 100% {
+    transform: translateY(-4px);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(4px);
+    opacity: 1;
+  }
+}
+
+/* 4. Gear Spin Animation */
+.spin-gear {
+  animation: spin-anim 12s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes spin-anim {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 5. Draw check mark */
+.draw-check {
+  animation: draw-anim 2.5s ease-in-out infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes draw-anim {
+  0%, 100% {
+    stroke-dashoffset: 15;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* 6. Grow Bars */
+.grow-bar-1 {
+  animation: grow-anim-1 2s ease-in-out infinite alternate;
+  transform-origin: bottom;
+}
+.grow-bar-2 {
+  animation: grow-anim-2 2s ease-in-out infinite alternate;
+  transform-origin: bottom;
+}
+.grow-bar-3 {
+  animation: grow-anim-3 2s ease-in-out infinite alternate;
+  transform-origin: bottom;
+}
+
+@keyframes grow-anim-1 {
+  0% { transform: scaleY(0.5); }
+  100% { transform: scaleY(1); }
+}
+@keyframes grow-anim-2 {
+  0% { transform: scaleY(0.3); }
+  100% { transform: scaleY(0.9); }
+}
+@keyframes grow-anim-3 {
+  0% { transform: scaleY(0.6); }
+  100% { transform: scaleY(1.1); }
+}
+
+/* 7. Chat dots */
+.chat-dots {
+  animation: blink-dots 1.5s infinite;
+  transform-origin: center;
+}
+
+@keyframes blink-dots {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* 8. Dash Move */
+.dash-move {
+  animation: dash-move-anim 1.5s linear infinite;
+}
+
+@keyframes dash-move-anim {
+  to {
+    stroke-dashoffset: -8;
+  }
+}
+
+/* 9. Target Radar */
+.target-radar {
+  animation: radar-anim 2s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+  transform-origin: center;
+}
+
+@keyframes radar-anim {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* 10. Heart beat */
+.heart-beat {
+  animation: beat-anim 1.2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes beat-anim {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.15); }
+  40% { transform: scale(1.05); }
+  60% { transform: scale(1.2); }
+}
+
+/* 11. Award Rotate */
+.award-shine {
+  animation: award-shine-anim 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes award-shine-anim {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(10deg) scale(1.05); stroke: #00bcd4; }
+}
