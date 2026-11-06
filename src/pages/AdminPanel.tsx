@@ -649,7 +649,7 @@ const AdminPanel = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
                 <div style={{ minWidth: '180px', height: '70px', borderRadius: '0.5rem', border: '1px solid var(--glass-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-dark)', padding: '0.5rem' }}>
                   <img
-                    src={ss.headerLogoUrl || '/logo.png'}
+                    src={ss.headerLogoUrl || '/header_logo.jpg'}
                     alt="Header Logo Preview"
                     style={{ maxHeight: '46px', maxWidth: '160px', objectFit: 'contain' }}
                   />
@@ -699,7 +699,7 @@ const AdminPanel = () => {
                 <div style={{ minWidth: '180px', height: '74px', borderRadius: '0.5rem', border: '1px solid rgba(255, 255, 255, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0f0f11', padding: '0.5rem' }}>
                   <div className={`logo footer-logo-${ss.footerLogoBgMode || 'card'}`} style={{ margin: 0 }}>
                     <img
-                      src={ss.footerLogoUrl || ss.headerLogoUrl || '/logo.png'}
+                      src={ss.footerLogoUrl || '/footer_logo.jpg'}
                       alt="Footer Logo Preview"
                       style={{ maxHeight: '44px', maxWidth: '150px', objectFit: 'contain' }}
                     />
