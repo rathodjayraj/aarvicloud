@@ -147,92 +147,6 @@ interface AuditResponse {
 
 // Built-in benchmark fallback datasets for instant zero-latency loading & resilience
 const BENCHMARK_DATA: Record<string, AuditResponse> = {
-  'evolutioninfosystem.com': {
-    query: {
-      domain: 'evolutioninfosystem.com',
-      mode: 'subdomains',
-      analyzedAt: new Date().toISOString()
-    },
-    overview: {
-      organicTraffic: 54,
-      trafficValue: 10,
-      domainRating: 16,
-      urlRating: 14,
-      backlinks: 184,
-      refDomains: 28,
-      keywordsCount: 22
-    },
-    gscPerformance: {
-      impressions: 1420,
-      clicks: 54,
-      ctr: '3.8%',
-      avgPosition: 26.4
-    },
-    siteAuditSummary: {
-      healthScore: 86,
-      passedCount: 8,
-      warningCount: 2,
-      errorCount: 0,
-      analyzedUrl: 'https://evolutioninfosystem.com/'
-    },
-    trafficCurve: [
-      { month: 'Jun', traffic: 42 },
-      { month: 'Jul', traffic: 46 },
-      { month: 'Aug', traffic: 39 },
-      { month: 'Sep', traffic: 48 },
-      { month: 'Oct', traffic: 54 },
-      { month: 'Nov', traffic: 59 }
-    ],
-    keywords: [
-      { id: 1, keyword: 'evolutioninfosystem', country: 'US', volume: 120, position: 1, kd: 12, cpc: '$0.22', traffic: 17, url: 'https://evolutioninfosystem.com' },
-      { id: 2, keyword: 'evolutioninfosystem official', country: 'IN', volume: 90, position: 2, kd: 15, cpc: '$0.18', traffic: 12, url: 'https://evolutioninfosystem.com/about' },
-      { id: 3, keyword: 'evolutioninfosystem login', country: 'GB', volume: 70, position: 1, kd: 8, cpc: '$0.15', traffic: 9, url: 'https://evolutioninfosystem.com/about' },
-      { id: 4, keyword: 'evolutioninfosystem services', country: 'US', volume: 140, position: 3, kd: 28, cpc: '$0.24', traffic: 6, url: 'https://evolutioninfosystem.com/services' },
-      { id: 5, keyword: 'evolutioninfosystem reviews', country: 'IN', volume: 80, position: 4, kd: 19, cpc: '$0.16', traffic: 4, url: 'https://evolutioninfosystem.com/about' },
-      { id: 6, keyword: 'evolutioninfosystem software', country: 'GB', volume: 160, position: 2, kd: 32, cpc: '$0.25', traffic: 3, url: 'https://evolutioninfosystem.com/software' },
-      { id: 7, keyword: 'custom web development solutions', country: 'US', volume: 380, position: 8, kd: 34, cpc: '$0.28', traffic: 2, url: 'https://evolutioninfosystem.com/about' },
-      { id: 8, keyword: 'digital marketing services company', country: 'IN', volume: 420, position: 7, kd: 38, cpc: '$0.30', traffic: 1, url: 'https://evolutioninfosystem.com/about' }
-    ],
-    topPages: [
-      { url: 'https://evolutioninfosystem.com/', traffic: 29, percent: '54%', keywords: 11 },
-      { url: 'https://evolutioninfosystem.com/services', traffic: 13, percent: '24%', keywords: 6 },
-      { url: 'https://evolutioninfosystem.com/about', traffic: 8, percent: '14%', keywords: 3 },
-      { url: 'https://evolutioninfosystem.com/contact', traffic: 4, percent: '8%', keywords: 2 }
-    ],
-    countries: [
-      { name: 'United States', code: 'US', percent: '46%', traffic: 25 },
-      { name: 'India', code: 'IN', percent: '30%', traffic: 16 },
-      { name: 'United Kingdom', code: 'GB', percent: '12%', traffic: 6 },
-      { name: 'Canada', code: 'CA', percent: '7%', traffic: 4 },
-      { name: 'Australia', code: 'AU', percent: '5%', traffic: 3 }
-    ],
-    seoAudit: [
-      { id: 'title', category: 'Meta & Content', title: 'Title Tag Optimization', value: 'Evolution Info System - Software & IT Services', status: 'passed', note: '51 characters (Optimal range: 30-65 chars)', impact: 'High', recommendation: 'Place high-intent service keywords at the start followed by your brand name.' },
-      { id: 'desc', category: 'Meta & Content', title: 'Meta Description Length', value: 'Leading software development, IT solutions, and digital innovation for modern enterprises.', status: 'warning', note: '98 characters (Optimal snippet range: 120-160 chars)', impact: 'Medium', recommendation: 'Expand to 135-155 characters including a clear call-to-action to maximize search click-through rates.' },
-      { id: 'h1', category: 'Meta & Content', title: 'Primary Heading (H1)', value: 'Innovative Digital & Software Solutions', status: 'passed', note: 'Single clean H1 tag detected in DOM', impact: 'High', recommendation: 'Maintain one distinct H1 tag per page matching target intent.' },
-      { id: 'canonical', category: 'Indexability', title: 'Canonical URL Tag', value: 'https://evolutioninfosystem.com/', status: 'passed', note: 'Canonical link defined to prevent duplicate content issues', impact: 'High', recommendation: 'Always keep self-referencing canonical links active.' },
-      { id: 'robots', category: 'Indexability', title: 'Indexability & Robots.txt', value: 'Allowed for Googlebot Indexing', status: 'passed', note: 'No global noindex or blocking disallow rules detected', impact: 'High', recommendation: 'Ensure Googlebot and Bingbot have crawl access to public landing pages.' },
-      { id: 'sitemap', category: 'Indexability', title: 'XML Sitemap Discoverability', value: 'https://evolutioninfosystem.com/sitemap.xml', status: 'passed', note: 'Valid sitemap link present for crawler discovery', impact: 'Medium', recommendation: 'Keep sitemap submitted and synced inside Google Search Console.' },
-      { id: 'ssl', category: 'Security', title: 'SSL / HTTPS Security', value: '256-bit TLS Active', status: 'passed', note: 'Domain is served securely over HTTPS with modern cipher suite', impact: 'High', recommendation: 'Enforce automatic 301 HTTPS redirects.' },
-      { id: 'latency', category: 'Performance', title: 'Server Latency (TTFB)', value: '185ms', status: 'passed', note: 'Ultra-fast sub-200ms initial response time', impact: 'High', recommendation: 'Leverage CDN caching to maintain rapid global load speeds.' },
-      { id: 'mobile', category: 'Performance', title: 'Mobile Viewport Meta', value: 'width=device-width, initial-scale=1', status: 'passed', note: 'Page conforms to Google Mobile-First Indexing requirements', impact: 'High', recommendation: 'Verify touch target sizes and responsive layouts on mobile.' },
-      { id: 'opengraph', category: 'Social SEO', title: 'Open Graph (Social Cards)', value: 'og:title, og:description, og:image configured', status: 'warning', note: 'Missing dedicated 1200x630 og:image card', impact: 'Low', recommendation: 'Add rich social card banner to boost visual shares on LinkedIn & WhatsApp.' }
-    ],
-    competitors: [
-      { name: 'technoinfotech.com', dr: 19, traffic: 82, backlinks: 240, commonKeywords: 14, marketShare: '28%' },
-      { name: 'synapseindia.com', dr: 24, traffic: 140, backlinks: 510, commonKeywords: 18, marketShare: '42%' },
-      { name: 'tatvasoft.com', dr: 32, traffic: 480, backlinks: 1200, commonKeywords: 22, marketShare: '65%' }
-    ],
-    probe: {
-      reachable: true,
-      title: 'Evolution Info System - Software & IT Services',
-      description: 'Leading software development, IT solutions, and digital innovation for modern enterprises.',
-      h1: 'Innovative Digital & Software Solutions',
-      ssl: true,
-      latencyMs: 185,
-      server: 'Cloudflare'
-    }
-  },
   'aarvicloud.com': {
     query: {
       domain: 'aarvicloud.com',
@@ -323,14 +237,14 @@ const BENCHMARK_DATA: Record<string, AuditResponse> = {
 
 const DigitalMarketing: React.FC = () => {
   // Input & Audit State
-  const [domainInput, setDomainInput] = useState('evolutioninfosystem.com');
+  const [domainInput, setDomainInput] = useState('aarvicloud.com');
   const [scope, setScope] = useState<'subdomains' | 'exact'>('subdomains');
   const [activeTab, setActiveTab] = useState<'keywords' | 'pages' | 'countries' | 'audit' | 'competitors'>('keywords');
   const [gscTimeframe, setGscTimeframe] = useState<'28d' | '3m' | '6m' | '12m'>('28d');
   const [chartMetric, setChartMetric] = useState<'traffic' | 'impressions' | 'value'>('traffic');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [auditData, setAuditData] = useState<AuditResponse>(BENCHMARK_DATA['evolutioninfosystem.com']);
+  const [auditData, setAuditData] = useState<AuditResponse>(BENCHMARK_DATA['aarvicloud.com']);
   const [hoveredPoint, setHoveredPoint] = useState<TrafficPoint | null>(null);
   const [copiedToast, setCopiedToast] = useState(false);
 
@@ -376,7 +290,7 @@ const DigitalMarketing: React.FC = () => {
 
   // Initial fetch on mount
   useEffect(() => {
-    runAudit('evolutioninfosystem.com', 'subdomains');
+    runAudit('aarvicloud.com', 'subdomains');
   }, []);
 
   const runAudit = async (domainToAudit: string, currentScope: 'subdomains' | 'exact' = scope) => {
@@ -877,7 +791,7 @@ const DigitalMarketing: React.FC = () => {
                 <input
                   type="text"
                   className="checker-input"
-                  placeholder="Enter website domain (e.g. evolutioninfosystem.com)"
+                  placeholder="Enter website domain (e.g. aarvicloud.com)"
                   value={domainInput}
                   onChange={(e) => setDomainInput(e.target.value)}
                   required
@@ -922,13 +836,6 @@ const DigitalMarketing: React.FC = () => {
             <div className="checker-examples">
               <span className="example-label">Quick samples:</span>
               <div className="example-pills">
-                <button
-                  type="button"
-                  className={`example-pill ${auditData.query.domain === 'evolutioninfosystem.com' ? 'active' : ''}`}
-                  onClick={() => handleSuggestionClick('evolutioninfosystem.com')}
-                >
-                  evolutioninfosystem.com
-                </button>
                 <button
                   type="button"
                   className={`example-pill ${auditData.query.domain === 'aarvicloud.com' ? 'active' : ''}`}
@@ -2212,7 +2119,7 @@ const DigitalMarketing: React.FC = () => {
               },
               {
                 q: 'How fast can our website double its organic search traffic?',
-                a: 'For sites with established authority (like evolutioninfosystem.com or aarvicloud.com), fixing technical warnings and expanding content for "striking distance" keywords (positions #11 to #20) typically yields a 50% to 120% traffic surge within 60 to 90 days.'
+                a: 'For sites with established authority (like aarvicloud.com or aarvicloud.com), fixing technical warnings and expanding content for "striking distance" keywords (positions #11 to #20) typically yields a 50% to 120% traffic surge within 60 to 90 days.'
               },
               {
                 q: 'Why does Google Search Console data vary across timeframes?',

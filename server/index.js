@@ -339,7 +339,7 @@ app.post('/api/marketing/audit', rateLimit(60, 60 * 1000), async (req, res) => {
     clean = clean.replace(/^(https?:\/\/)/, '').replace(/^www\./, '').split('/')[0].split('?')[0];
 
     if (!clean || clean.length < 3 || !clean.includes('.')) {
-      return res.status(400).json({ error: 'Invalid domain format. Example: evolutioninfosystem.com or aarvicloud.com' });
+      return res.status(400).json({ error: 'Invalid domain format. Example: aarvicloud.com' });
     }
 
     const domainName = clean;
