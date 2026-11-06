@@ -1508,15 +1508,23 @@ app.post('/api/contact', rateLimit(10, 60 * 1000), async (req, res) => {
   return res.status(200).json({ message: 'Inquiry submitted and saved successfully!' });
 });
 
-// Serve frontend production build if available
-const distPath = path.join(__dirname, '../dist');
-if (fs.existsSync(distPath)) {
-  app.use(express.static(distPath));
+// Serve frontend production build if available (supports local dist, Hostinger public_html, or subfolder)
+const possibleStaticDirs = [
+  path.join(__dirname, '../public_html'),
+  path.join(__dirname, '../dist'),
+  path.join(__dirname, 'public'),
+  path.join(__dirname, '.')
+];
+const staticDir = possibleStaticDirs.find(d => fs.existsSync(path.join(d, 'index.html')));
+
+if (staticDir) {
+  console.log('Serving static frontend build from:', staticDir);
+  app.use(express.static(staticDir));
   app.get('*', (req, res, next) => {
     if (req.path.startsWith('/api') || req.path === '/sitemap.xml' || req.path === '/robots.txt') {
       return next();
     }
-    res.sendFile(path.join(distPath, 'index.html'));
+    res.sendFile(path.join(staticDir, 'index.html'));
   });
 }
 
