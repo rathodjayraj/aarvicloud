@@ -1530,7 +1530,7 @@ if (staticDir) {
 
 // Start Server
 store.init().then(() => {
-  app.listen(PORT, () => {
-    console.log(`AarviCloud Secure CMS & SEO Server running on port ${PORT}`);
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT}`);
   });
 });
