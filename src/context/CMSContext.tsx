@@ -163,9 +163,9 @@ const DOMAIN = 'https://aarvicloud.com';
 
 const initialCMSData: CMSData = {
   siteSettings: {
-    siteName: 'AarviCloud IT Solutions',
+    siteName: 'AarviCloud Technologies',
     siteDomain: DOMAIN,
-    defaultMetaTitle: 'AarviCloud | Enterprise AI, Cloud Solutions & Custom Software Development Company',
+    defaultMetaTitle: 'AarviCloud Technologies',
     defaultMetaDescription: 'AarviCloud engineers production-grade Generative AI, secure cloud architectures, custom ERP/CRM software, and scalable web & mobile applications for global enterprises.',
     defaultKeywords: 'AI Development Company, Cloud Solutions, Custom Software Development Company, ERP Development Rajkot, CRM Software, Cyber Security Consulting, AarviCloud',
     defaultMetaRobots: 'index, follow',

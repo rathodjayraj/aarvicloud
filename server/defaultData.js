@@ -13,9 +13,9 @@ const DOMAIN = process.env.SITE_DOMAIN || 'https://aarvicloud.com';
 const defaultData = {
   siteSettings: {
     id: 'global',
-    siteName: 'AarviCloud IT Solutions',
+    siteName: 'AarviCloud Technologies',
     siteDomain: DOMAIN,
-    defaultMetaTitle: 'AarviCloud | Enterprise AI, Cloud Solutions & Custom Software Development Company',
+    defaultMetaTitle: 'AarviCloud Technologies',
     defaultMetaDescription: 'AarviCloud engineers production-grade Generative AI, secure cloud architectures, custom ERP/CRM software, and scalable web & mobile applications for global enterprises.',
     defaultKeywords: 'AI Development Company, Cloud Solutions, Custom Software Development Company, ERP Development Rajkot, CRM Software, Cyber Security Consulting, React Node.js Agency, AarviCloud',
     defaultMetaRobots: 'index, follow',
@@ -35,7 +35,7 @@ const defaultData = {
     home: {
       pageKey: 'home',
       routePath: '/',
-      metaTitle: 'AarviCloud | Enterprise AI, Cloud Solutions & Custom Software Development',
+      metaTitle: 'AarviCloud Technologies',
       metaDescription: 'Partner with AarviCloud for production-grade Generative AI, scalable AWS/Azure/GCP cloud solutions, custom ERP & CRM software, and full-stack digital engineering.',
       targetKeywords: 'Enterprise AI Solutions, Cloud Computing Services, Custom Software Development Company, ERP CRM Development, Digital Transformation Partner, AarviCloud',
       metaRobots: 'index, follow',
