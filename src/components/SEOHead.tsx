@@ -133,14 +133,15 @@ const SEOHead = ({
     upsertLink('canonical', resolvedCanonical);
 
     // 8. Custom Favicon
-    if (settings.faviconUrl) {
-      const favMime = settings.faviconUrl.endsWith('.svg')
+    const favUrl = settings.faviconUrl && settings.faviconUrl !== '/logo.png' ? settings.faviconUrl : '/PNG2_FAV.png';
+    if (favUrl) {
+      const favMime = favUrl.endsWith('.svg')
         ? 'image/svg+xml'
-        : settings.faviconUrl.endsWith('.ico')
+        : favUrl.endsWith('.ico')
         ? 'image/x-icon'
         : 'image/png';
-      upsertLink('icon', settings.faviconUrl, 'dynamic-favicon', favMime);
-      upsertLink('apple-touch-icon', settings.faviconUrl, 'dynamic-apple-icon');
+      upsertLink('icon', favUrl, 'dynamic-favicon', favMime);
+      upsertLink('apple-touch-icon', favUrl, 'dynamic-apple-icon');
     }
 
     // 9. Structured Data (JSON-LD)

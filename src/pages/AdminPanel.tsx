@@ -769,7 +769,7 @@ const AdminPanel = () => {
               <h3 style={{ fontSize: '1.1rem', marginBottom: '1rem' }}>Upload Custom Favicon</h3>
               <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
                 <div style={{ width: '64px', height: '64px', borderRadius: '0.5rem', border: '1px solid var(--glass-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-dark)' }}>
-                  <img src={ss.faviconUrl || '/logo.png'} alt="Favicon Preview" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />
+                  <img src={ss.faviconUrl || '/PNG2_FAV.png'} alt="Favicon Preview" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />
                 </div>
                 <div style={{ flex: 1, minWidth: '240px' }}>
                   <input
