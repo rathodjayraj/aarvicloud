@@ -8,15 +8,14 @@
     "defaultKeywords": "AI Development Company, Cloud Solutions, Custom Software Development Company, ERP Development Rajkot, CRM Software, Cyber Security Consulting, React Node.js Agency, AarviCloud",
     "defaultMetaRobots": "index, follow",
     "faviconUrl": "/api/media/1793966261220-PNG.png",
-    "headerLogoUrl": "/api/media/1793978633097-Screenshot_2026-11-06_200638.png",
-    "footerLogoUrl": "/api/media/1793978544109-PNG1.png",
-    "footerLogoBgMode": "card",
-    "defaultOgImage": "/api/media/1793966265433-PNG2.png",
+    "defaultOgImage": "/api/media/1794032667874-P1.png",
     "ogImageWidth": 1200,
     "ogImageHeight": 630,
     "robotsTxt": "User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /api/\n\nSitemap: https://aarvicloud.com/sitemap.xml",
     "googleSiteVerification": "",
-    "updatedAt": "2026-11-06T15:23:58.508Z"
+    "updatedAt": "2026-11-07T06:24:31.837Z",
+    "headerLogoUrl": "/api/media/1794032597173-PNG__63_.png",
+    "footerLogoUrl": "/api/media/1794032370726-P2.png"
   },
   "pageSeo": {
     "home": {
@@ -2087,5 +2086,6 @@
       "updatedAt": "2026-10-28T09:48:10.439Z"
     }
   ],
-  "contactSubmissions": []
+  "contactSubmissions": [],
+  "domainProfiles": {}
 }
