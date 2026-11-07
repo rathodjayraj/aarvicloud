@@ -65,7 +65,7 @@ const SEOHead = ({
     title ||
     pageConfig?.metaTitle ||
     settings.defaultMetaTitle ||
-    'AarviCloud Technologies';
+    'AarviCloud | Enterprise AI, Cloud Solutions & Custom Software Development Company';
 
   const resolvedDesc =
     description ||
