@@ -14,8 +14,8 @@
     "robotsTxt": "User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /api/\n\nSitemap: https://aarvicloud.com/sitemap.xml",
     "googleSiteVerification": "",
     "updatedAt": "2026-11-07T06:35:13.757Z",
-    "headerLogoUrl": "/api/media/1794032597173-PNG__63_.png",
-    "footerLogoUrl": "/api/media/1794033306555-PNG1__10___1_.png",
+    "headerLogoUrl": "/header_logo.png",
+    "footerLogoUrl": "/footer_logo.png",
     "footerLogoBgMode": "transparent"
   },
   "pageSeo": {

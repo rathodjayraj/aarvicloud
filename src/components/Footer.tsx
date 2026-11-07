@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import footerLogoDefault from '../assets/footer_logo.jpg';
+import footerLogoDefault from '../assets/footer_logo.png';
 import { useCMS } from '../context/CMSContext';
 import './Footer.css';
 
@@ -39,7 +39,7 @@ const Footer = () => {
       ? cms.siteSettings.footerLogoUrl
       : cms.siteSettings?.headerLogoUrl && cms.siteSettings.headerLogoUrl !== '/logo.png'
       ? cms.siteSettings.headerLogoUrl
-      : footerLogoDefault;
+      : '/footer_logo.png';
   const siteName = cms.siteSettings?.siteName || 'AarviCloud';
   const footerBgMode = cms.siteSettings?.footerLogoBgMode || 'transparent';
   const socialLinks = fc.socialLinks || {
@@ -96,7 +96,12 @@ const Footer = () => {
                 alt={siteName}
                 className="logo-img"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = footerLogoDefault;
+                  const t = e.currentTarget as HTMLImageElement;
+                  if (!t.src.endsWith('/footer_logo.png')) {
+                    t.src = '/footer_logo.png';
+                  } else {
+                    t.src = footerLogoDefault;
+                  }
                 }}
               />
             </Link>

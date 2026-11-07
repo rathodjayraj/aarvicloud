@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Moon, Sun } from 'lucide-react';
-import headerLogoDefault from '../assets/header_logo.jpg';
+import headerLogoDefault from '../assets/header_logo.png';
 import { useCMS } from '../context/CMSContext';
 import './Navbar.css';
 
@@ -16,7 +16,7 @@ const Navbar = () => {
   const headerLogo =
     cms.siteSettings?.headerLogoUrl && cms.siteSettings.headerLogoUrl !== '/logo.png'
       ? cms.siteSettings.headerLogoUrl
-      : headerLogoDefault;
+      : '/header_logo.png';
   const siteName = cms.siteSettings?.siteName || 'AarviCloud';
 
   const [theme, setTheme] = useState(() => {
@@ -70,7 +70,12 @@ const Navbar = () => {
             alt={siteName}
             className="logo-img"
             onError={(e) => {
-              (e.target as HTMLImageElement).src = headerLogoDefault;
+              const t = e.currentTarget as HTMLImageElement;
+              if (!t.src.endsWith('/header_logo.png')) {
+                t.src = '/header_logo.png';
+              } else {
+                t.src = headerLogoDefault;
+              }
             }}
           />
         </Link>
