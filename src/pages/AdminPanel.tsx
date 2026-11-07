@@ -751,7 +751,7 @@ const AdminPanel = () => {
                       Footer Logo Display Mode:
                     </label>
                     <select
-                      value={ss.footerLogoBgMode || 'card'}
+                      value={ss.footerLogoBgMode || 'transparent'}
                       onChange={(e) => setAdminData({ ...adminData, siteSettings: { ...ss, footerLogoBgMode: e.target.value as any } })}
                       style={{ maxWidth: '420px' }}
                     >

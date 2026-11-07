@@ -120,11 +120,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
-  padding: 8px 18px;
+  background: transparent;
+  padding: 0;
   border-radius: 12px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: none;
+  border: none;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -143,8 +143,8 @@
 }
 
 .footer-brand .logo-img {
-  height: 48px;
-  max-height: 56px;
+  height: 62px;
+  max-height: 70px;
   max-width: 300px;
   width: auto;
   object-fit: contain;
@@ -247,7 +247,7 @@
 }
 
 .social-circle:hover {
-  background: #ffffff;
+  background: transparent;
   color: #0f0f11;
   border-color: #ffffff;
   transform: translateY(-3px);

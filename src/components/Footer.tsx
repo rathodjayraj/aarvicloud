@@ -41,7 +41,7 @@ const Footer = () => {
       ? cms.siteSettings.headerLogoUrl
       : footerLogoDefault;
   const siteName = cms.siteSettings?.siteName || 'AarviCloud';
-  const footerBgMode = cms.siteSettings?.footerLogoBgMode || 'card';
+  const footerBgMode = cms.siteSettings?.footerLogoBgMode || 'transparent';
   const socialLinks = fc.socialLinks || {
     linkedin: 'https://linkedin.com',
     twitter: 'https://x.com',
