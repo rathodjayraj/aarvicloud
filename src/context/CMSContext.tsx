@@ -176,6 +176,7 @@ const initialCMSData: CMSData = {
     defaultOgImage: `${DOMAIN}/api/og-default.svg`,
     ogImageWidth: 1200,
     ogImageHeight: 630,
+    googleSiteVerification: 'kd5FlGxBbbBTZiwn85v0n3YubinNftMJlZovOmYPlvw',
     robotsTxt: `User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /api/\n\nSitemap: ${DOMAIN}/sitemap.xml`
   },
   pageSeo: {},

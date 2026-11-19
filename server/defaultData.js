@@ -27,7 +27,7 @@ const defaultData = {
     ogImageWidth: 1200,
     ogImageHeight: 630,
     robotsTxt: `User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /api/\n\nSitemap: ${DOMAIN}/sitemap.xml`,
-    googleSiteVerification: '',
+    googleSiteVerification: 'kd5FlGxBbbBTZiwn85v0n3YubinNftMJlZovOmYPlvw',
     updatedAt: new Date().toISOString()
   },
 
