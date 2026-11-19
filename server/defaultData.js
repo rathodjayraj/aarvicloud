@@ -453,7 +453,7 @@ const defaultData = {
     subtitle: "Have a project in mind? Let's build something amazing together.",
     cardHeading: 'Get In Touch',
     cardDescription: "We're here to answer any questions you may have about our AI, cloud, and custom software solutions.",
-    email: 'hello@aarvicloud.com',
+    email: 'info@aarvicloud.com',
     phone: '+91 88664 87551',
     officeAddress: 'TWINSTAR, 150 Feet Ring Rd, near Nana Mava Road, Rajkot, Gujarat 360004',
     recipientEmail: 'rathodjayraj94@gmail.com'
@@ -464,7 +464,7 @@ const defaultData = {
     partners: ['Microsoft Azure', 'AWS', 'Shopify Partners', 'Google Cloud Partner'],
     brandDescription: 'We empower enterprises and startups worldwide with scalable, secure, and intelligent AI-driven solutions that transform industries and redefine growth.',
     phone: '+91 88664 87551',
-    email: 'hello@aarvicloud.com',
+    email: 'info@aarvicloud.com',
     quickLinksTitle: 'LINKS',
     quickLinks: [
       { label: 'Home', path: '/' },

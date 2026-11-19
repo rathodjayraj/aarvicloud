@@ -17,7 +17,7 @@ const TermsOfService = () => {
           </div>
           
           <div className="info-body">
-            <p>Welcome to AarviCloud! These terms and conditions outline the rules and regulations for the use of AarviCloud's Website, located at hello@aarvicloud.com.</p>
+            <p>Welcome to AarviCloud! These terms and conditions outline the rules and regulations for the use of AarviCloud's Website, located at https://aarvicloud.com.</p>
             <p>By accessing this website, we assume you accept these terms and conditions. Do not continue to use AarviCloud if you do not agree to take all of the terms and conditions stated on this page.</p>
             
             <h2>1. Intellectual Property Rights</h2>
@@ -50,7 +50,7 @@ const TermsOfService = () => {
             <p>These Terms will be governed by and interpreted in accordance with the laws of the State of Gujarat, India, and you submit to the non-exclusive jurisdiction of the state and federal courts located in Rajkot for the resolution of any disputes.</p>
             
             <h2>8. Contact Information</h2>
-            <p>If you have any queries regarding any of our terms, please contact us at <strong>hello@aarvicloud.com</strong> or call us at <strong>+91 88664 87551</strong>.</p>
+            <p>If you have any queries regarding any of our terms, please contact us at <strong>info@aarvicloud.com</strong> or call us at <strong>+91 88664 87551</strong>.</p>
           </div>
         </motion.div>
       </div>

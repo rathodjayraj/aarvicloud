@@ -17,7 +17,7 @@ const PrivacyPolicy = () => {
           </div>
           
           <div className="info-body">
-            <p>At AarviCloud, accessible from hello@aarvicloud.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by AarviCloud and how we use it.</p>
+            <p>At AarviCloud, accessible from https://aarvicloud.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by AarviCloud and how we use it.</p>
             
             <h2>1. Information We Collect</h2>
             <p>The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information.</p>
@@ -52,7 +52,7 @@ const PrivacyPolicy = () => {
             </ul>
             
             <h2>6. Contact Us</h2>
-            <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at <strong>hello@aarvicloud.com</strong> or call us at <strong>+91 88664 87551</strong>.</p>
+            <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at <strong>info@aarvicloud.com</strong> or call us at <strong>+91 88664 87551</strong>.</p>
           </div>
         </motion.div>
       </div>

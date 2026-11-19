@@ -92,7 +92,11 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3>Email</h3>
-                    <p>{cc.email || 'hello@aarvicloud.com'}</p>
+                    <p>
+                      <a href={`mailto:${cc.email || 'info@aarvicloud.com'}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                        {cc.email || 'info@aarvicloud.com'}
+                      </a>
+                    </p>
                   </div>
                 </div>
                 <div className="method">
