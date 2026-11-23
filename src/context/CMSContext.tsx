@@ -223,12 +223,26 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           ...data,
           siteSettings: { ...prev.siteSettings, ...(data.siteSettings || {}) }
         }));
+        setLoading(false);
+        return;
       }
     } catch (err) {
       console.warn('Using fallback CMS data:', err);
     } finally {
       setLoading(false);
     }
+
+    try {
+      const raw = localStorage.getItem('aarvicloud_standby_cms');
+      if (raw) {
+        const localData = JSON.parse(raw);
+        setCms((prev) => ({
+          ...prev,
+          ...localData,
+          siteSettings: { ...prev.siteSettings, ...(localData.siteSettings || {}) }
+        }));
+      }
+    } catch {}
   }, []);
 
   useEffect(() => {
