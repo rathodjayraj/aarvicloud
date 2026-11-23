@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   Lock, Save, RefreshCw, Plus, Trash2, Edit3, 
   Globe, FileText, Briefcase, Mail, Check, ExternalLink, Database, Layers,
-  Sun, Moon, AlertTriangle, ArrowLeft, Sparkles
+  Sun, Moon, AlertTriangle, ArrowLeft, Sparkles, Download
 } from 'lucide-react';
 import { useCMS } from '../context/CMSContext';
 import SEOHead from '../components/SEOHead';
@@ -78,6 +78,17 @@ const AdminPanel = () => {
       localStorage.setItem('aarvicloud_standby_cms', JSON.stringify(existing));
     } catch {}
   };
+
+  const exportCmsDataFile = () => {
+    const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(adminData, null, 2));
+    const downloadAnchor = document.createElement('a');
+    downloadAnchor.setAttribute('href', dataStr);
+    downloadAnchor.setAttribute('download', 'cms-data.json');
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    downloadAnchor.remove();
+    notifySave('cms-data.json exported! Save to public/cms-data.json or upload to server.');
+  };
   const [saveStatus, setSaveStatus] = useState<string>('');
 
   // Selected sub-items for editing
@@ -87,40 +98,59 @@ const AdminPanel = () => {
   const [editingCaseStudy, setEditingCaseStudy] = useState<any>(null);
   const [editingCustomPage, setEditingCustomPage] = useState<any>(null);
 
-  // Fetch Admin Full CMS State with timeout & recovery handling
+  // Fetch Admin Full CMS State directly from static /cms-data.json + API fallback
   const fetchAdminData = async (authToken: string) => {
     setLoadingData(true);
     setDataError('');
+
+    // 1. Direct Static Fetch (instant, 100% serverless)
+    let directData: any = null;
+    try {
+      const staticRes = await fetch('/cms-data.json');
+      if (staticRes.ok) {
+        directData = await staticRes.json();
+      }
+    } catch {}
+
+    let localOverrides: any = null;
+    try {
+      const raw = localStorage.getItem('aarvicloud_standby_cms');
+      if (raw) localOverrides = JSON.parse(raw);
+    } catch {}
+
+    if (directData || localOverrides) {
+      setAdminData({
+        ...cms,
+        ...(directData || {}),
+        ...(localOverrides || {}),
+        systemStatus: {
+          supabaseConnected: false,
+          pgTablesReady: true,
+          lastSyncAt: new Date().toISOString(),
+          projectName: 'Aarvicloud Direct CMS (Serverless)',
+          networkProxyActive: false
+        }
+      });
+      setServerOfflineNotice(false);
+      setLoadingData(false);
+    }
+
+    // 2. Try background API sync if backend happens to be running
     try {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 7000);
-
+      const timeoutId = setTimeout(() => controller.abort(), 2000);
       const res = await fetch('/api/admin/cms', {
         headers: { Authorization: `Bearer ${authToken}` },
         signal: controller.signal
       });
       clearTimeout(timeoutId);
-
       if (res.ok) {
         const data = await res.json();
         setAdminData(data);
-        setDataError('');
         setServerOfflineNotice(false);
-      } else if (res.status === 401) {
-        setToken('');
-        localStorage.removeItem('aarvicloud_admin_jwt');
-      } else {
-        console.warn('Backend server status', res.status, 'Auto-recovering via Standby CMS Data.');
-        loadStandbyData();
-        setServerOfflineNotice(true);
       }
-    } catch (err: any) {
-      console.warn('Backend server offline or unreachable. Auto-recovering via Standby CMS Data.', err);
-      loadStandbyData();
-      setServerOfflineNotice(true);
-    } finally {
-      setLoadingData(false);
-    }
+    } catch {}
+    setLoadingData(false);
   };
 
   useEffect(() => {
@@ -612,7 +642,7 @@ const AdminPanel = () => {
           />
           <h2 style={{ fontSize: '1.3rem', margin: 0, fontWeight: 700 }}>AarviCloud Admin</h2>
           <span className={`admin-badge ${sys.supabaseConnected ? 'badge-success' : 'badge-warning'}`}>
-            {sys.supabaseConnected ? '● Supabase Connected' : '● Local Cache'}
+            {sys.supabaseConnected ? '● Supabase Connected' : '● Direct Serverless Mode'}
           </span>
           <span className="admin-badge badge-info">
             🔒 Network URL Hidden
@@ -637,6 +667,9 @@ const AdminPanel = () => {
             <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
           </button>
 
+          <button type="button" onClick={exportCmsDataFile} className="admin-btn-action" title="Export updated cms-data.json">
+            <Download size={14} /> Export cms-data.json
+          </button>
           <a href="/" target="_blank" rel="noreferrer" className="admin-btn-action">
             <ExternalLink size={14} /> View Website
           </a>

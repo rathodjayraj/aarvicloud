@@ -214,35 +214,49 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [loading, setLoading] = useState<boolean>(true);
 
   const refreshCMS = useCallback(async () => {
-    try {
-      const res = await fetch('/api/public/cms');
-      if (res.ok) {
-        const data = await res.json();
-        setCms((prev) => ({
-          ...prev,
-          ...data,
-          siteSettings: { ...prev.siteSettings, ...(data.siteSettings || {}) }
-        }));
-        setLoading(false);
-        return;
-      }
-    } catch (err) {
-      console.warn('Using fallback CMS data:', err);
-    } finally {
-      setLoading(false);
-    }
+    let loadedData: any = null;
 
+    // 1. Direct Static Fetch (No backend needed - 100% reliable)
     try {
-      const raw = localStorage.getItem('aarvicloud_standby_cms');
-      if (raw) {
-        const localData = JSON.parse(raw);
-        setCms((prev) => ({
-          ...prev,
-          ...localData,
-          siteSettings: { ...prev.siteSettings, ...(localData.siteSettings || {}) }
-        }));
+      const staticRes = await fetch('/cms-data.json');
+      if (staticRes.ok) {
+        loadedData = await staticRes.json();
       }
     } catch {}
+
+    // 2. If backend API is running, try getting latest server state
+    if (!loadedData) {
+      try {
+        const res = await fetch('/api/public/cms');
+        if (res.ok) {
+          loadedData = await res.json();
+        }
+      } catch {}
+    }
+
+    // 3. Check for any client-side localStorage edits
+    let localData: any = null;
+    try {
+      const raw = localStorage.getItem('aarvicloud_standby_cms');
+      if (raw) localData = JSON.parse(raw);
+    } catch {}
+
+    if (loadedData || localData) {
+      const base = loadedData || {};
+      const override = localData || {};
+      setCms((prev) => ({
+        ...prev,
+        ...base,
+        ...override,
+        siteSettings: {
+          ...prev.siteSettings,
+          ...(base.siteSettings || {}),
+          ...(override.siteSettings || {})
+        }
+      }));
+    }
+
+    setLoading(false);
   }, []);
 
   useEffect(() => {
