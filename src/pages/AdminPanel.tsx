@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   Lock, Save, RefreshCw, Plus, Trash2, Edit3, 
   Globe, FileText, Briefcase, Mail, Check, ExternalLink, Database, Layers,
-  Sun, Moon, AlertTriangle, ArrowLeft, Sparkles, Download
+  Sun, Moon, AlertTriangle, ArrowLeft, Sparkles, Download, Layout, LogOut, Menu
 } from 'lucide-react';
 import { useCMS } from '../context/CMSContext';
 import SEOHead from '../components/SEOHead';
@@ -97,6 +97,23 @@ const AdminPanel = () => {
   const [editingPortfolio, setEditingPortfolio] = useState<any>(null);
   const [editingCaseStudy, setEditingCaseStudy] = useState<any>(null);
   const [editingCustomPage, setEditingCustomPage] = useState<any>(null);
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState<boolean>(false);
+
+  const tabTitles: Record<string, string> = {
+    seo: 'Global SEO & Branding',
+    pageseo: 'Page SEO & Meta Tags',
+    blogs: 'Blog Posts Management',
+    portfolio: 'Portfolio Projects',
+    casestudies: 'Case Studies',
+    custompages: 'Custom Landing Pages',
+    contacts: 'Contact Inquiries & Leads',
+    system: 'Database & SQL Schema'
+  };
+
+  const selectTab = (tab: any) => {
+    setActiveTab(tab);
+    setMobileSidebarOpen(false);
+  };
 
   // Fetch Admin Full CMS State directly from static /cms-data.json + API fallback
   const fetchAdminData = async (authToken: string) => {
@@ -599,121 +616,223 @@ const AdminPanel = () => {
 
   return (
     <div className="admin-container">
-      <SEOHead title="AarviCloud Admin Panel | Dynamic CMS &amp; SEO Suite" robots="noindex, nofollow" />
+      <SEOHead title="AarviCloud Admin Panel | Dynamic CMS & SEO Suite" robots="noindex, nofollow" />
 
-      {serverOfflineNotice && (
-        <div style={{
-          background: 'rgba(239, 127, 26, 0.1)',
-          border: '1px solid rgba(239, 127, 26, 0.3)',
-          borderRadius: '8px',
-          padding: '0.75rem 1.25rem',
-          marginBottom: '1rem',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: '1rem',
-          flexWrap: 'wrap'
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-            <AlertTriangle size={18} style={{ color: '#EF7F1A', flexShrink: 0 }} />
-            <span style={{ fontSize: '0.88rem' }}>
-              <strong>Standby Mode Active:</strong> Backend server (port 5000) is offline. Operating smoothly in standalone cached CMS mode.
-            </span>
-          </div>
-          <button
-            type="button"
-            className="btn-primary"
-            style={{ padding: '0.35rem 0.85rem', fontSize: '0.8rem' }}
-            onClick={() => fetchAdminData(token)}
-          >
-            <RefreshCw size={13} /> Recheck Server
-          </button>
-        </div>
+      {/* Mobile Backdrop Overlay */}
+      {mobileSidebarOpen && (
+        <div className="admin-sidebar-overlay" onClick={() => setMobileSidebarOpen(false)} />
       )}
 
-      {/* Admin Top Sticky Bar */}
-      <div className="admin-header-bar">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
-          <img
-            src={ss.headerLogoUrl || '/logo.png'}
-            alt="Brand Logo"
-            style={{ height: '30px', width: 'auto', maxHeight: '30px', objectFit: 'contain' }}
-            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-          />
-          <h2 style={{ fontSize: '1.3rem', margin: 0, fontWeight: 700 }}>AarviCloud Admin</h2>
-          <span className={`admin-badge ${sys.supabaseConnected ? 'badge-success' : 'badge-warning'}`}>
-            {sys.supabaseConnected ? '● Supabase Connected' : '● Direct Serverless Mode'}
-          </span>
-          <span className="admin-badge badge-info">
-            🔒 Network URL Hidden
-          </span>
+      {/* Enterprise Left Navigation Sidebar */}
+      <aside className={`admin-sidebar ${mobileSidebarOpen ? 'open' : ''}`}>
+        <div className="admin-sidebar-header">
+          <a href="/" target="_blank" rel="noreferrer" className="admin-sidebar-brand">
+            <img
+              src={ss.headerLogoUrl || '/header_logo.png'}
+              alt="AarviCloud"
+              className="admin-sidebar-logo"
+              onError={(e) => { (e.target as HTMLImageElement).src = '/header_logo.png'; }}
+            />
+          </a>
+          <span className="admin-badge-v2">Admin v2</span>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
-          {saveStatus && (
-            <span style={{ color: '#10b981', fontSize: '0.88rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-              <Check size={16} /> {saveStatus}
+        <div className="admin-sidebar-scroll">
+          {/* Group 1: Content Engine */}
+          <div className="admin-nav-group">
+            <div className="admin-nav-group-title">Content Engine</div>
+            <button
+              type="button"
+              className={`admin-nav-item ${activeTab === 'blogs' ? 'active' : ''}`}
+              onClick={() => selectTab('blogs')}
+            >
+              <div className="admin-nav-item-content">
+                <Edit3 size={16} className="admin-nav-item-icon" />
+                <span className="admin-nav-item-label">Blogs</span>
+              </div>
+              <span className="admin-nav-count-badge">{adminData.blogs?.length || 0}</span>
+            </button>
+
+            <button
+              type="button"
+              className={`admin-nav-item ${activeTab === 'portfolio' ? 'active' : ''}`}
+              onClick={() => selectTab('portfolio')}
+            >
+              <div className="admin-nav-item-content">
+                <Briefcase size={16} className="admin-nav-item-icon" />
+                <span className="admin-nav-item-label">Portfolio</span>
+              </div>
+              <span className="admin-nav-count-badge">{adminData.portfolioProjects?.length || 0}</span>
+            </button>
+
+            <button
+              type="button"
+              className={`admin-nav-item ${activeTab === 'casestudies' ? 'active' : ''}`}
+              onClick={() => selectTab('casestudies')}
+            >
+              <div className="admin-nav-item-content">
+                <Layers size={16} className="admin-nav-item-icon" />
+                <span className="admin-nav-item-label">Case Studies</span>
+              </div>
+              <span className="admin-nav-count-badge">{adminData.caseStudies?.length || 0}</span>
+            </button>
+
+            <button
+              type="button"
+              className={`admin-nav-item ${activeTab === 'custompages' ? 'active' : ''}`}
+              onClick={() => selectTab('custompages')}
+            >
+              <div className="admin-nav-item-content">
+                <Layout size={16} className="admin-nav-item-icon" />
+                <span className="admin-nav-item-label">Custom Pages</span>
+              </div>
+              <span className="admin-nav-count-badge">{adminData.customPages?.length || 0}</span>
+            </button>
+          </div>
+
+          {/* Group 2: SEO & Growth */}
+          <div className="admin-nav-group">
+            <div className="admin-nav-group-title">SEO & Growth</div>
+            <button
+              type="button"
+              className={`admin-nav-item ${activeTab === 'seo' ? 'active' : ''}`}
+              onClick={() => selectTab('seo')}
+            >
+              <div className="admin-nav-item-content">
+                <Globe size={16} className="admin-nav-item-icon" />
+                <span className="admin-nav-item-label">Global SEO & Brand</span>
+              </div>
+            </button>
+
+            <button
+              type="button"
+              className={`admin-nav-item ${activeTab === 'pageseo' ? 'active' : ''}`}
+              onClick={() => selectTab('pageseo')}
+            >
+              <div className="admin-nav-item-content">
+                <FileText size={16} className="admin-nav-item-icon" />
+                <span className="admin-nav-item-label">Page SEO & Meta</span>
+              </div>
+            </button>
+          </div>
+
+          {/* Group 3: Operations & System */}
+          <div className="admin-nav-group">
+            <div className="admin-nav-group-title">Operations</div>
+            <button
+              type="button"
+              className={`admin-nav-item ${activeTab === 'contacts' ? 'active' : ''}`}
+              onClick={() => selectTab('contacts')}
+            >
+              <div className="admin-nav-item-content">
+                <Mail size={16} className="admin-nav-item-icon" />
+                <span className="admin-nav-item-label">Inquiries</span>
+              </div>
+              <span className="admin-nav-count-badge">{adminData.contactSubmissions?.length || 0}</span>
+            </button>
+
+            <button
+              type="button"
+              className={`admin-nav-item ${activeTab === 'system' ? 'active' : ''}`}
+              onClick={() => selectTab('system')}
+            >
+              <div className="admin-nav-item-content">
+                <Database size={16} className="admin-nav-item-icon" />
+                <span className="admin-nav-item-label">Database & SQL</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        {/* Sidebar User & Control Footer */}
+        <div className="admin-sidebar-footer">
+          <div className="admin-user-card">
+            <div className="admin-avatar">JR</div>
+            <div className="admin-user-info">
+              <span className="admin-user-name">Jayraj Rathod</span>
+              <span className="admin-user-role">Super Admin</span>
+            </div>
+          </div>
+
+          <div className="admin-footer-actions">
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="admin-footer-btn"
+              title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            >
+              {theme === 'dark' ? <Sun size={14} style={{ color: '#f59e0b' }} /> : <Moon size={14} style={{ color: '#4f46e5' }} />}
+              <span>{theme === 'dark' ? 'Light' : 'Dark'}</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="admin-footer-btn btn-danger-subtle"
+              title="Sign Out"
+            >
+              <LogOut size={14} />
+              <span>Logout</span>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      {/* Main Content Workspace */}
+      <div className="admin-main-wrapper">
+        {/* Top Header Navbar */}
+        <header className="admin-top-navbar">
+          <div className="admin-top-left">
+            <button
+              type="button"
+              className="admin-mobile-toggle"
+              onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
+              aria-label="Toggle Navigation"
+            >
+              <Menu size={18} />
+            </button>
+            <div className="admin-breadcrumbs">
+              <span>AarviCloud CMS</span>
+              <span>/</span>
+              <strong>{tabTitles[activeTab] || 'Dashboard'}</strong>
+            </div>
+            <span className="admin-status-pill">
+              ● {serverOfflineNotice ? 'Direct Standby Mode' : (sys.supabaseConnected ? 'Supabase Connected' : 'Direct Serverless Mode')}
             </span>
-          )}
+          </div>
 
-          {/* Light / Dark Mode Toggle */}
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className="admin-btn-action"
-            title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-          >
-            {theme === 'dark' ? <Sun size={15} style={{ color: '#f59e0b' }} /> : <Moon size={15} style={{ color: '#4f46e5' }} />}
-            <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
-          </button>
+          <div className="admin-top-right">
+            {saveStatus && (
+              <span className="admin-save-toast">
+                <Check size={14} /> {saveStatus}
+              </span>
+            )}
 
-          <button type="button" onClick={exportCmsDataFile} className="admin-btn-action" title="Export updated cms-data.json">
-            <Download size={14} /> Export cms-data.json
-          </button>
-          <a href="/" target="_blank" rel="noreferrer" className="admin-btn-action">
-            <ExternalLink size={14} /> View Website
-          </a>
-          <a href="/sitemap.xml" target="_blank" rel="noreferrer" className="admin-btn-action">
-            <Globe size={14} /> /sitemap.xml
-          </a>
-          <a href="/robots.txt" target="_blank" rel="noreferrer" className="admin-btn-action">
-            <FileText size={14} /> /robots.txt
-          </a>
-          <button onClick={handleLogout} className="admin-btn-action admin-btn-danger">
-            Sign Out
-          </button>
-        </div>
-      </div>
+            <button
+              type="button"
+              onClick={exportCmsDataFile}
+              className="admin-header-btn btn-export"
+              title="Export updated cms-data.json"
+            >
+              <Download size={14} /> Export JSON
+            </button>
 
-      <div className="container" style={{ paddingTop: '1.5rem', paddingBottom: '5rem' }}>
-        {/* Navigation Tabs */}
-        <div className="admin-nav-tabs">
-          <button className={`admin-tab-btn ${activeTab === 'seo' ? 'active' : ''}`} onClick={() => setActiveTab('seo')}>
-            <Globe size={16} /> Global SEO &amp; Branding
-          </button>
-          <button className={`admin-tab-btn ${activeTab === 'pageseo' ? 'active' : ''}`} onClick={() => setActiveTab('pageseo')}>
-            <FileText size={16} /> Page SEO (Meta/OG/Robots)
-          </button>
-          <button className={`admin-tab-btn ${activeTab === 'blogs' ? 'active' : ''}`} onClick={() => setActiveTab('blogs')}>
-            <Edit3 size={16} /> Blogs ({adminData.blogs?.length || 0})
-          </button>
-          <button className={`admin-tab-btn ${activeTab === 'portfolio' ? 'active' : ''}`} onClick={() => setActiveTab('portfolio')}>
-            <Briefcase size={16} /> Portfolio ({adminData.portfolioProjects?.length || 0})
-          </button>
-          <button className={`admin-tab-btn ${activeTab === 'casestudies' ? 'active' : ''}`} onClick={() => setActiveTab('casestudies')}>
-            <Layers size={16} /> Case Studies ({adminData.caseStudies?.length || 0})
-          </button>
-          <button className={`admin-tab-btn ${activeTab === 'custompages' ? 'active' : ''}`} onClick={() => setActiveTab('custompages')}>
-            <Plus size={16} /> Custom SEO Pages ({adminData.customPages?.length || 0})
-          </button>
-          <button className={`admin-tab-btn ${activeTab === 'contacts' ? 'active' : ''}`} onClick={() => setActiveTab('contacts')}>
-            <Mail size={16} /> Inquiries ({adminData.contactSubmissions?.length || 0})
-          </button>
-          <button className={`admin-tab-btn ${activeTab === 'system' ? 'active' : ''}`} onClick={() => setActiveTab('system')}>
-            <Database size={16} /> Supabase &amp; SQL Schema
-          </button>
-        </div>
+            <a href="/" target="_blank" rel="noreferrer" className="admin-header-btn">
+              <ExternalLink size={14} /> View Website
+            </a>
 
+            <a href="/sitemap.xml" target="_blank" rel="noreferrer" className="admin-header-btn">
+              <Globe size={14} /> /sitemap.xml
+            </a>
+
+            <a href="/robots.txt" target="_blank" rel="noreferrer" className="admin-header-btn">
+              <FileText size={14} /> /robots.txt
+            </a>
+          </div>
+        </header>
+
+        {/* Content Area */}
+        <div className="admin-content-area">
         {/* TAB 1: Global SEO & Branding (Favicon, 1200x630 OG Image, robots.txt) */}
         {activeTab === 'seo' && (
           <form onSubmit={saveSiteSettings} className="admin-card">
@@ -2174,6 +2293,7 @@ const AdminPanel = () => {
             />
           </div>
         )}
+        </div>
       </div>
     </div>
   );
